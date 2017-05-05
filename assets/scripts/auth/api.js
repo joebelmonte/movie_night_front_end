@@ -59,11 +59,23 @@ const addNewMovie = (data) => {
   })
 }
 
+const getUsersMovies = (data) => {
+  console.log('in getUsersMovies and data is ', data)
+  return $.ajax({
+    url: config.apiOrigin + '/movies',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signInAuto,
   changePassword,
   signOut,
-  addNewMovie
+  addNewMovie,
+  getUsersMovies
 }

@@ -54,12 +54,24 @@ const addNewMovie = function (event) {
   console.log('completed onSignIn')
 }
 
+const getAllMovies = function (event) {
+  event.preventDefault()
+  // console.log(data)
+  // console.log(data.submit)
+  // console.log(data.movie.name)
+  console.log(api.getUsersMovies())
+    // .then(ui.addNewMovieSuccess)
+    // .catch(ui.addNewMovieFailure)
+  console.log('completed get users movies')
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#signOut').on('submit', signOut)
   $('#new-movie').on('submit', addNewMovie)
+  $('#show-all-movies').on('submit', getAllMovies)
 }
 
 module.exports = {
