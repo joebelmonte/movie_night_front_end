@@ -77,6 +77,11 @@ const signOutFailure = (data) => {
   $('#sign-in').show()
 }
 
+const getAllMoviesSuccess = (response) => {
+  console.log('the response is ' + response)
+  console.log('the response 1 is ' + response.movies[0].year_released)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -87,5 +92,6 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   autoSignInSuccess,
-  autoSignInFailure
+  autoSignInFailure,
+  getAllMoviesSuccess
 }

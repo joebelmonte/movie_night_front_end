@@ -59,8 +59,9 @@ const getAllMovies = function (event) {
   // console.log(data)
   // console.log(data.submit)
   // console.log(data.movie.name)
-  console.log(api.getUsersMovies())
-    // .then(ui.addNewMovieSuccess)
+  console.log('result of the api call for all movies is ', api.getUsersMovies())
+  api.getUsersMovies()
+    .then(ui.getAllMoviesSuccess)
     // .catch(ui.addNewMovieFailure)
   console.log('completed get users movies')
 }

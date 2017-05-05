@@ -60,7 +60,6 @@ const addNewMovie = (data) => {
 }
 
 const getUsersMovies = (data) => {
-  console.log('in getUsersMovies and data is ', data)
   return $.ajax({
     url: config.apiOrigin + '/movies',
     method: 'GET',
