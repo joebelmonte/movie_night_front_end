@@ -2,14 +2,13 @@ const config = require('../config.js')
 const store = require('../store.js')
 
 const signUp = (data) => {
-  console.log("in signUp and data is ", data)
+  console.log('in signUp and data is ', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-up',
     method: 'POST',
     data
   })
 }
-
 
 const signIn = (data) => {
   return $.ajax({
@@ -48,10 +47,23 @@ const signOut = (data) => {
   })
 }
 
+const addNewMovie = (data) => {
+  console.log('in addNewMovie and data is ', data)
+  return $.ajax({
+    url: config.apiOrigin + '/movies',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signInAuto,
   changePassword,
-  signOut
+  signOut,
+  addNewMovie
 }

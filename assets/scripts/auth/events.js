@@ -42,11 +42,24 @@ const signOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const addNewMovie = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  // console.log(data)
+  // console.log(data.submit)
+  // console.log(data.movie.name)
+  api.addNewMovie(data)
+    // .then(ui.addNewMovieSuccess)
+    // .catch(ui.addNewMovieFailure)
+  console.log('completed onSignIn')
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#signOut').on('submit', signOut)
+  $('#new-movie').on('submit', addNewMovie)
 }
 
 module.exports = {

@@ -11,10 +11,10 @@ const signUpFailure = (error) => {
   $('#AccountCreationFailure').modal('show')
 }
 
-
 const signInSuccess = (data) => {
   store.user = data.user
   console.log("on signInSuccess")
+  console.log(data.user)
   $('#signOut').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
@@ -31,6 +31,7 @@ const signInFailure = (error) => {
 const autoSignInSuccess = (data) => {
   store.user = data.user
   console.log("auto sign in success")
+  console.log(data.user)
   $('#signOut').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
