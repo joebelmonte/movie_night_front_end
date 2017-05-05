@@ -1,2 +1,66 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body {
+  text-align: center;
+}
+
+// nav {
+//   background-color: blue;
+//   font-size: 14px;
+//   padding: 10px;
+//   text-align: left;
+//   height: 50px;
+// }
+
+// ul {
+//     background-color: blue;
+// }
+//
+// li {
+//     display: inline;
+// }
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 5px;
+    overflow: hidden;
+    background-color: blue;
+}
+
+li {
+    float: left;
+    // width: 100%;
+    padding: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  text-align: center;
+  background-color: blue;
+  // height: 100px;
+  width: 100%;
+  color: white;
+}
+
+.modalContainer{
+  text-align: left;
+  font-size: 18px;
+}
+
+#change-password{
+  display: none;
+  // float: left;
+}
+
+#signOut{
+  display: none;
+  // float: right;
+  // padding: 10px;
+}
