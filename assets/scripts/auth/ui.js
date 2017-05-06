@@ -1,4 +1,5 @@
 const store = require('../store.js')
+const showMoviesTemplate = require('../templates/movie-listing.handlebars')
 
 const signUpSuccess = (data) => {
     console.log("In signUpSuccess")
@@ -44,7 +45,6 @@ const autoSignInFailure = (error) => {
   $('#LogFailure').modal('show')
 }
 
-
 const changePasswordSuccess = (data) => {
   console.log('change password success')
   $('#passWordChangeSuccess').modal('show')
@@ -72,7 +72,7 @@ const signOutSuccess = (data) => {
 }
 
 const signOutFailure = (data) => {
-  console.log("sign out failure")
+  console.log('sign out failure')
   $('#sign-up').show()
   $('#sign-in').show()
 }
@@ -81,6 +81,8 @@ const getAllMoviesSuccess = (data) => {
   console.log('the response is ' + data)
   console.log('the name of movie 1 ' + data.movies[0].name)
   console.log('the length of the movie array is ' + data.movies.length)
+  const showMoviesHTML = showMoviesTemplate({ movies: data.movies })
+  $('.content').append(showMoviesHTML)
 }
 
 module.exports = {
