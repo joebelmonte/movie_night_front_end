@@ -77,9 +77,10 @@ const signOutFailure = (data) => {
   $('#sign-in').show()
 }
 
-const getAllMoviesSuccess = (response) => {
-  console.log('the response is ' + response)
-  console.log('the response 1 is ' + response.movies[0].year_released)
+const getAllMoviesSuccess = (data) => {
+  console.log('the response is ' + data)
+  console.log('the name of movie 1 ' + data.movies[0].name)
+  console.log('the length of the movie array is ' + data.movies.length)
 }
 
 module.exports = {
