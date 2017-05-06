@@ -57,7 +57,7 @@
     <form id="new-movie">
       <fieldset>
         <input type="submit" name="submit" value="Create New Movie"><br>
-        <input type="text" name="movie[name]" placeholder="Name (Required)">
+        <input type="text" name="movie[name]" placeholder="Title (Required)">
         <input type="text" name="movie[year_released]" placeholder="Year Released">
         <input type="text" name="movie[mpaa_rating]" placeholder="MPAA Rating">
         <input type="text" name="movie[user_rating]" placeholder="Personal Rating">
@@ -98,6 +98,26 @@
     <!-- <div id="content" class="content">
     </div> -->
     </div>
+    <form id="update-movie">
+      <fieldset>
+        <input type="submit" name="submit" value="Update Movie Information">
+        <input type="text" name="movie[name]" placeholder="Title">
+        <input type="text" name="movie[year_released]" placeholder="Year Released">
+        <input type="text" name="movie[mpaa_rating]" placeholder="MPAA Rating">
+        <input type="text" name="movie[user_rating]" placeholder="Personal Rating">
+        <input type="text" name="movie[length]" placeholder="Length (min)">
+        <input type="text" name="movie[ownership_status]" placeholder="Do we own it?">
+        <input type="text" name="movie[ownership_type]" placeholder="Method of ownership">
+        <input type="text" name="movie[last_viewing]" placeholder="Last time viewed">
+        <input type="text" name="movie[times_watched]" placeholder="Number of times watched">
+      </fieldset>
+    </form>
+    <form id="delete-movie">
+      <fieldset>
+        <!-- <input type="text" name="movie[name]" placeholder="Enter Movie Name Here"> -->
+        <input type="submit" name="submit" value="Delete this movie">
+      </fieldset>
+    </form>
     <div class="modalContainer">
       <!-- Modal -->
       <div id="AccountCreationSuccess" class="modal fade" role="dialog">

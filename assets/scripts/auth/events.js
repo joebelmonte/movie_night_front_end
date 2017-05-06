@@ -2,6 +2,9 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store.js')
+const getFormFieldsNoEmptyStrings = require(`../../../lib/get-form-fields-remove-empty-strings`)
+
+let movieID = 0
 
 const onSignUp = function (event) {
   console.log("In onSignUp")
@@ -70,10 +73,26 @@ const showOneMovie = (event) => {
   console.log('In showOneMovie')
   // console.log(event)
   console.log($(event.target).attr('data-id'))
-  const movieID = $(event.target).attr('data-id')
+  movieID = $(event.target).attr('data-id')
   console.log('movieID is ', movieID)
   api.getSelectedMovie(movieID)
     .then(ui.getSelectedMovieSuccess)
+}
+
+// const onUpdateMovie = (event) => {
+//   event.preventDefault()
+//   console.log('In onUpdateMovie')
+//   console.log('movieID is ', movieID)
+//   const data = getFormFields(this)
+//   // api.UpdateMovie(data, movieID)
+//     // .then(ui.UpdateMovieSuccess)
+// }
+
+const onUpdateMovie = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  console.log('In onUpdateMovie and data is', data)
+  api.UpdateMovie(data, movieID)
 }
 
 const addHandlers = () => {
@@ -84,6 +103,7 @@ const addHandlers = () => {
   $('#new-movie').on('submit', addNewMovie)
   $('#show-all-movies').on('submit', getAllMovies)
   $('.all-movies-table').on('click', showOneMovie)
+  $('#update-movie').on('submit', onUpdateMovie)
 }
 
 module.exports = {
