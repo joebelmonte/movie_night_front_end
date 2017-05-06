@@ -82,7 +82,7 @@ const getAllMoviesSuccess = (data) => {
   console.log('the name of movie 1 ' + data.movies[0].name)
   console.log('the length of the movie array is ' + data.movies.length)
   const showMoviesHTML = showMoviesTemplate({ movies: data.movies })
-  $('.content').append(showMoviesHTML)
+  $('tbody').html(showMoviesHTML)
 }
 
 module.exports = {

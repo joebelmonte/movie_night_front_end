@@ -1,9 +1,16 @@
 {{#each movies as |movie|}}
 
 
-<ul id="movie-{{@index}}">
-  <li><h1> <small>Title: {{movie.name}}</small></h1></li>
+<tr id="movie-{{@index}}">
+  <td>{{movie.name}}</td>
+  <td>{{movie.year_released}}</td>
+  <td>{{movie.mpaa_rating}}</td>
+  <td>{{movie.user_rating}}</td>
+  <td>{{movie.ownership_status}}</td>
+  <td>{{movie.ownership_type}}</td>
+  <td>{{movie.last_viewing}}</td>
+  <td>{{movie.times_watched}}</td>
+  <td>{{movie.length}}</td>
     <!-- <li><button class="remove-book" data-id="{{movie.id}}">Remove</button></li> -->
-</ul>
 
 {{/each}}
