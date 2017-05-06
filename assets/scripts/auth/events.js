@@ -66,6 +66,15 @@ const getAllMovies = function (event) {
   console.log('completed get users movies')
 }
 
+const showOneMovie = (event) => {
+  console.log('In showOneMovie')
+  // console.log(event)
+  console.log($(event.target).attr("data-id"))
+  // console.log(event.currentTarget)
+  // console.log((event.target).attr("data-id"))
+  console.log('the id of the book to be deleted is ', event)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -73,6 +82,7 @@ const addHandlers = () => {
   $('#signOut').on('submit', signOut)
   $('#new-movie').on('submit', addNewMovie)
   $('#show-all-movies').on('submit', getAllMovies)
+  $('.all-movies-table').on('click', showOneMovie)
 }
 
 module.exports = {

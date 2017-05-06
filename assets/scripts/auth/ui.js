@@ -83,6 +83,9 @@ const getAllMoviesSuccess = (data) => {
   console.log('the length of the movie array is ' + data.movies.length)
   const showMoviesHTML = showMoviesTemplate({ movies: data.movies })
   $('tbody').html(showMoviesHTML)
+  // $('.rows').click(function () {
+  //   alert('click')
+  // })
 }
 
 module.exports = {
