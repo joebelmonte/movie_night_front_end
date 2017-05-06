@@ -79,7 +79,7 @@ const getSelectedMovie = (movieID) => {
   })
 }
 
-const UpdateMovie = (data, movieID) => {
+const updateMovie = (data, movieID) => {
   return $.ajax({
     url: config.apiOrigin + '/movies/' + movieID,
     method: 'PATCH',
@@ -87,6 +87,16 @@ const UpdateMovie = (data, movieID) => {
       Authorization: 'Token token=' + store.user.token
     },
     data
+  })
+}
+
+const deleteMovie = (movieID) => {
+  return $.ajax({
+    url: config.apiOrigin + '/movies/' + movieID,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -99,5 +109,6 @@ module.exports = {
   addNewMovie,
   getUsersMovies,
   getSelectedMovie,
-  UpdateMovie
+  updateMovie,
+  deleteMovie
 }

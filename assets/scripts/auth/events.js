@@ -92,7 +92,14 @@ const onUpdateMovie = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   console.log('In onUpdateMovie and data is', data)
-  api.UpdateMovie(data, movieID)
+  api.updateMovie(data, movieID)
+}
+
+const onDeleteMovie = function (event) {
+  event.preventDefault()
+  // const data = getFormFields(this)
+  console.log('In onDeleteMovie and movieID is', movieID)
+  api.deleteMovie(movieID)
 }
 
 const addHandlers = () => {
@@ -104,6 +111,7 @@ const addHandlers = () => {
   $('#show-all-movies').on('submit', getAllMovies)
   $('.all-movies-table').on('click', showOneMovie)
   $('#update-movie').on('submit', onUpdateMovie)
+  $('#delete-movie').on('submit', onDeleteMovie)
 }
 
 module.exports = {
