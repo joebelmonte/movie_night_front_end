@@ -69,6 +69,16 @@ const getUsersMovies = (data) => {
   })
 }
 
+const getSelectedMovie = (movieID) => {
+  return $.ajax({
+    url: config.apiOrigin + '/movies/' + movieID,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -76,5 +86,6 @@ module.exports = {
   changePassword,
   signOut,
   addNewMovie,
-  getUsersMovies
+  getUsersMovies,
+  getSelectedMovie
 }

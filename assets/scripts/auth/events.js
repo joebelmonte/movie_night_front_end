@@ -69,10 +69,11 @@ const getAllMovies = function (event) {
 const showOneMovie = (event) => {
   console.log('In showOneMovie')
   // console.log(event)
-  console.log($(event.target).attr("data-id"))
-  // console.log(event.currentTarget)
-  // console.log((event.target).attr("data-id"))
-  console.log('the id of the book to be deleted is ', event)
+  console.log($(event.target).attr('data-id'))
+  const movieID = $(event.target).attr('data-id')
+  console.log('movieID is ', movieID)
+  api.getSelectedMovie(movieID)
+    .then(ui.getSelectedMovieSuccess)
 }
 
 const addHandlers = () => {

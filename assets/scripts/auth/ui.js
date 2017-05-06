@@ -1,5 +1,6 @@
 const store = require('../store.js')
 const showMoviesTemplate = require('../templates/movie-listing.handlebars')
+const showMovieTemplate = require('../templates/single-movie-listing.handlebars')
 
 const signUpSuccess = (data) => {
     console.log("In signUpSuccess")
@@ -88,6 +89,17 @@ const getAllMoviesSuccess = (data) => {
   // })
 }
 
+const getSelectedMovieSuccess = (data) => {
+  console.log('in getSelectedMovieSuccess and the data is ', data)
+  console.log('in getSelectedMovieSuccess and the data.movie is ', data.movie)
+  console.log('in getSelectedMovieSuccess and the data.movie.name is ', data.movie.name)
+  const showMovieHTML = showMovieTemplate({ movies: data })
+  $('tbody').html(showMovieHTML)
+  // $('.rows').click(function () {
+  //   alert('click')
+  // })
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -99,5 +111,6 @@ module.exports = {
   signOutFailure,
   autoSignInSuccess,
   autoSignInFailure,
-  getAllMoviesSuccess
+  getAllMoviesSuccess,
+  getSelectedMovieSuccess
 }
