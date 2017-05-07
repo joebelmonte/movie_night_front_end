@@ -78,11 +78,22 @@ const showOneMovie = (event) => {
     .then(ui.getSelectedMovieSuccess)
 }
 
+const showUpdatedMovie = (movieID) => {
+  console.log('In showUpdatedMovie and movie id is', movieID)
+  api.getSelectedMovie(movieID)
+    .then(ui.getSelectedMovieSuccess)
+}
+
 const onUpdateMovie = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   console.log('In onUpdateMovie and data is', data)
   api.updateMovie(data, movieID)
+    .then(ui.onUpdateMovieSuccess)
+    .then(() => {
+      showUpdatedMovie(movieID)
+    })
+    .catch(ui.onUpdateMovieFailure)
 }
 
 const onDeleteMovie = function (event) {

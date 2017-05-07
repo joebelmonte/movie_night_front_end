@@ -84,6 +84,17 @@ const addNewMovieSuccess = (data) => {
   $('#new-movie').trigger('reset')
 }
 
+const onUpdateMovieSuccess = (data) => {
+  console.log('in onUpdateMovieSuccess ')
+  $('#update-movieSuccess').modal('show')
+  $('#update-movie').trigger('reset')
+}
+
+const onUpdateMovieFailure = (data) => {
+  console.log('in onUpdateMovieFailure ')
+  $('#update-movieFailure').modal('show')
+}
+
 const addNewMovieFailure = (data) => {
   console.log('in addNewMovieFailure ')
   $('#createMoviefailure').modal('show')
@@ -135,5 +146,7 @@ module.exports = {
   getAllMoviesSuccess,
   getSelectedMovieSuccess,
   addNewMovieSuccess,
-  addNewMovieFailure
+  addNewMovieFailure,
+  onUpdateMovieSuccess,
+  onUpdateMovieFailure
 }
