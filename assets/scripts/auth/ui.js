@@ -94,13 +94,9 @@ const getAllMoviesSuccess = (data) => {
   console.log('the response is ' + data)
   console.log('data.movies is' + data.movies)
   console.log('the length of the movie array is ' + data.movies.length)
-  const showMoviesHTML = showMoviesTemplate({ movies: data.movies })
+  const sortedMovies = data.movies.sort(dynamicSort('name'))
+  const showMoviesHTML = showMoviesTemplate({ movies: sortedMovies })
   $('tbody').html(showMoviesHTML)
-  const joe = data.movies.sort(dynamicSort('year_released'))
-  console.log('result of dynamic sort is: ', joe)
-  // $('.rows').click(function () {
-  //   alert('click')
-  // })
 }
 
 const getSelectedMovieSuccess = (data) => {
