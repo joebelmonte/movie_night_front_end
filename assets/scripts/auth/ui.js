@@ -78,6 +78,17 @@ const signOutFailure = (data) => {
   $('#sign-in').show()
 }
 
+const addNewMovieSuccess = (data) => {
+  console.log('in addNewMovieSuccess ')
+  $('#createMovieSuccess').modal('show')
+  $('#new-movie').trigger('reset')
+}
+
+const addNewMovieFailure = (data) => {
+  console.log('in addNewMovieFailure ')
+  $('#createMoviefailure').modal('show')
+}
+
 function dynamicSort (property) {
   let sortOrder = 1
   if (property[0] === '-') {
@@ -122,5 +133,7 @@ module.exports = {
   autoSignInSuccess,
   autoSignInFailure,
   getAllMoviesSuccess,
-  getSelectedMovieSuccess
+  getSelectedMovieSuccess,
+  addNewMovieSuccess,
+  addNewMovieFailure
 }

@@ -108,7 +108,7 @@
         <input type="text" name="movie[length]" placeholder="Length (min)">
         <input type="text" name="movie[ownership_status]" placeholder="Do we own it?">
         <input type="text" name="movie[ownership_type]" placeholder="Method of ownership">
-        <input type="text" name="movie[last_viewing]" placeholder="Last time viewed">
+        <input type="date" name="movie[last_viewing]" placeholder="Last time viewed">
         <input type="text" name="movie[times_watched]" placeholder="Number of times watched">
       </fieldset>
     </form>
@@ -265,6 +265,49 @@
       </div>
     </div>
   </div>
+<!-- Modal End -->
+<!-- Modal Start -->
+    <div id="createMovieSuccess" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Alert</h4>
+          </div>
+          <div class="modal-body">
+            <p>Your movie has been successfully created.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+<!-- Modal End -->
+<!-- Modal Start -->
+    <div id="createMoviefailure" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Alert</h4>
+          </div>
+          <div class="modal-body">
+            <p>Your movie was not successfully created - please try again.</p>
+            <p>Note that your movie must contain a title.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
 <!-- Modal End -->
       <footer>
         Copyright 2017, Joe Belmonte

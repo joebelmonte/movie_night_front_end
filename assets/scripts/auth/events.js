@@ -44,15 +44,15 @@ const signOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-const addNewMovie = function (event) {
+const onAddNewMovie = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   // console.log(data)
   // console.log(data.submit)
   // console.log(data.movie.name)
   api.addNewMovie(data)
-    // .then(ui.addNewMovieSuccess)
-    // .catch(ui.addNewMovieFailure)
+    .then(ui.addNewMovieSuccess)
+    .catch(ui.addNewMovieFailure)
   console.log('completed onSignIn')
 }
 
@@ -78,15 +78,6 @@ const showOneMovie = (event) => {
     .then(ui.getSelectedMovieSuccess)
 }
 
-// const onUpdateMovie = (event) => {
-//   event.preventDefault()
-//   console.log('In onUpdateMovie')
-//   console.log('movieID is ', movieID)
-//   const data = getFormFields(this)
-//   // api.UpdateMovie(data, movieID)
-//     // .then(ui.UpdateMovieSuccess)
-// }
-
 const onUpdateMovie = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -106,7 +97,7 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#signOut').on('submit', signOut)
-  $('#new-movie').on('submit', addNewMovie)
+  $('#new-movie').on('submit', onAddNewMovie)
   $('#show-all-movies').on('submit', getAllMovies)
   $('.all-movies-table').on('click', showOneMovie)
   $('#update-movie').on('submit', onUpdateMovie)
