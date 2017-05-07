@@ -78,12 +78,26 @@ const signOutFailure = (data) => {
   $('#sign-in').show()
 }
 
+function dynamicSort (property) {
+  let sortOrder = 1
+  if (property[0] === '-') {
+    sortOrder = -1
+    property = property.substr(1)
+  }
+  return function (a, b) {
+    const result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0
+    return result * sortOrder
+  }
+}
+
 const getAllMoviesSuccess = (data) => {
   console.log('the response is ' + data)
-  console.log('the name of movie 1 ' + data.movies[0].name)
+  console.log('data.movies is' + data.movies)
   console.log('the length of the movie array is ' + data.movies.length)
   const showMoviesHTML = showMoviesTemplate({ movies: data.movies })
   $('tbody').html(showMoviesHTML)
+  const joe = data.movies.sort(dynamicSort('year_released'))
+  console.log('result of dynamic sort is: ', joe)
   // $('.rows').click(function () {
   //   alert('click')
   // })
