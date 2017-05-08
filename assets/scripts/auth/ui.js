@@ -1,6 +1,7 @@
 const store = require('../store.js')
 const showMoviesTemplate = require('../templates/movie-listing.handlebars')
 const showMovieTemplate = require('../templates/single-movie-listing.handlebars')
+const showOMDbSearchTemplate = require('../templates/movie-listing-OMDB-search.handlebars')
 
 const signUpSuccess = (data) => {
     console.log("In signUpSuccess")
@@ -140,6 +141,18 @@ const getSelectedMovieSuccess = (data) => {
   // })
 }
 
+const searchOMDbSuccess = (data) => {
+  console.log('in searchOMDbSuccess and the data is ', data)
+  console.log('in searchOMDbSuccess and the data.Search is ', data.Search)
+  const sortedMovies = data.Search.sort(dynamicSort('Title'))
+  console.log('sorted movies is: ', sortedMovies)
+  const showMovieHTML = showOMDbSearchTemplate({ movies: sortedMovies })
+  $('.search-OMDB-movies-table').html(showMovieHTML)
+  // $('.rows').click(function () {
+  //   alert('click')
+  // })
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -157,5 +170,6 @@ module.exports = {
   addNewMovieFailure,
   onUpdateMovieSuccess,
   onUpdateMovieFailure,
-  getSearchedMoviesSuccess
+  getSearchedMoviesSuccess,
+  searchOMDbSuccess
 }

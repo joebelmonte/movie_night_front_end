@@ -1,0 +1,9 @@
+{{#each movies as |movie|}}
+
+<tr data-id="{{movie.imdbID}}">
+  <td data-id="{{movie.imdbID}}">{{movie.Title}}</td>
+  <td data-id="{{movie.imdbID}}">{{movie.Year}}</td>
+  <td data-id="{{movie.imdbID}}"><img src={{movie.Poster}} onerror="this.style.display='none'"></td>
+    <!-- <li><button class="remove-book" data-id="{{movie.id}}">Remove</button></li> -->
+
+{{/each}}

@@ -151,6 +151,7 @@ const onSearchOMDb = function (event) {
   const searchCriteriaForAPI = searchCriteria.split(' ').join('+')
   console.log('searchCriteriaForAPI is ', searchCriteriaForAPI)
   api.searchOMDb(searchCriteriaForAPI)
+    .then(ui.searchOMDbSuccess)
 }
 
 const addHandlers = () => {
