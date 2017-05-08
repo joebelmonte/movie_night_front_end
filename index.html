@@ -123,6 +123,38 @@
         <input type="submit" name="submit" value="Delete this movie">
       </fieldset>
     </form>
+    <form id="search-OMDB">
+      <fieldset>
+        <input type="text" name="movie[name]" placeholder="Search by title">
+        <input type="submit" name="submit" value="Search">
+      </fieldset>
+    </form>
+    <div class="container">
+      <h2>Search Results</h2>
+      <!-- <p>The .table-hover class enables a hover state on table rows:</p> -->
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Year Released</th>
+            <th>MPAA Rating</th>
+            <!-- <th>Personal Rating</th>
+            <th>Do we own it?</th> -->
+            <!-- <th>Method of ownership</th> -->
+            <!-- <th>Last time viewed</th> -->
+            <!-- <th>Number of times watched</th> -->
+            <th>Length (min)</th>
+            <th>Rotten Tomatoes Rating</th>
+            <th>Box Office</th>
+          </tr>
+        </thead>
+        <tbody class="all-movies-table">
+            <!--Handlebars output goes here  -->
+        </tbody>
+      </table>
+    <!-- <div id="content" class="content">
+    </div> -->
+    </div>
     <div class="modalContainer">
       <!-- Modal -->
       <div id="AccountCreationSuccess" class="modal fade" role="dialog">

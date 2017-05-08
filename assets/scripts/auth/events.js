@@ -141,6 +141,18 @@ const onSearchByTitle = function (event) {
   // console.log('the result of the filter is ', filterMoviesResults)
 }
 
+const onSearchOMDb = function (event) {
+  event.preventDefault()
+  console.log('In onSearchByTitle2')
+  const data = getFormFields(this)
+  console.log('Get form fields is ', data)
+  const searchCriteria = data.movie.name
+  console.log('searchCriteria is ', searchCriteria)
+  const searchCriteriaForAPI = searchCriteria.split(' ').join('+')
+  console.log('searchCriteriaForAPI is ', searchCriteriaForAPI)
+  api.searchOMDb(searchCriteriaForAPI)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -152,6 +164,7 @@ const addHandlers = () => {
   $('#update-movie').on('submit', onUpdateMovie)
   $('#delete-movie').on('submit', onDeleteMovie)
   $('#search-by-title').on('submit', onSearchByTitle)
+  $('#search-OMDB').on('submit', onSearchOMDb)
 }
 
 module.exports = {
