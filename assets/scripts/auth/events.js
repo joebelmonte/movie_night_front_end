@@ -133,6 +133,7 @@ const onSearchByTitle = function (event) {
     .then(() => {
       filterMoviesResults = filterMovies(searchCriteria)
       console.log('the result of the filter is ', filterMoviesResults)
+      ui.getSearchedMoviesSuccess(filterMoviesResults)
     })
   // console.log('right before I send it to the filter allMovies is ', allMovies)
   // const filterMoviesResults = filterMovies(searchCriteria)

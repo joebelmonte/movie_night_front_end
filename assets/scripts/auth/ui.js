@@ -121,6 +121,14 @@ const getAllMoviesSuccess = (data) => {
   $('tbody').html(showMoviesHTML)
 }
 
+const getSearchedMoviesSuccess = (data) => {
+  console.log('In getSearchedMoviesSuccess and the data is ', data)
+  const sortedMovies = data.sort(dynamicSort('name'))
+  const showMoviesHTML = showMoviesTemplate({ movies: sortedMovies })
+  $('tbody').html(showMoviesHTML)
+  $('#search-by-title').trigger('reset')
+}
+
 const getSelectedMovieSuccess = (data) => {
   console.log('in getSelectedMovieSuccess and the data is ', data)
   console.log('in getSelectedMovieSuccess and the data.movie is ', data.movie)
@@ -148,5 +156,6 @@ module.exports = {
   addNewMovieSuccess,
   addNewMovieFailure,
   onUpdateMovieSuccess,
-  onUpdateMovieFailure
+  onUpdateMovieFailure,
+  getSearchedMoviesSuccess
 }
