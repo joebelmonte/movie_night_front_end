@@ -148,9 +148,10 @@ const searchOMDbSuccess = (data) => {
   console.log('sorted movies is: ', sortedMovies)
   const showMovieHTML = showOMDbSearchTemplate({ movies: sortedMovies })
   $('.search-OMDB-movies-table').html(showMovieHTML)
-  // $('.rows').click(function () {
-  //   alert('click')
-  // })
+}
+
+const showOMDbMovieSuccess = (data) => {
+  console.log('in showOMDbMovieSuccess and the data is ', data)
 }
 
 module.exports = {
@@ -171,5 +172,6 @@ module.exports = {
   onUpdateMovieSuccess,
   onUpdateMovieFailure,
   getSearchedMoviesSuccess,
-  searchOMDbSuccess
+  searchOMDbSuccess,
+  showOMDbMovieSuccess
 }

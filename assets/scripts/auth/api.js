@@ -107,6 +107,13 @@ const searchOMDb = (data) => {
   })
 }
 
+const showOMDbMovie = (data) => {
+  return $.ajax({
+    url: 'http://www.omdbapi.com/?i=' + data,
+    method: 'GET'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -118,5 +125,6 @@ module.exports = {
   getSelectedMovie,
   updateMovie,
   deleteMovie,
-  searchOMDb
+  searchOMDb,
+  showOMDbMovie
 }

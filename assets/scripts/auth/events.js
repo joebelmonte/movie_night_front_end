@@ -154,6 +154,16 @@ const onSearchOMDb = function (event) {
     .then(ui.searchOMDbSuccess)
 }
 
+const onShowOMDbMovie = function (event) {
+  event.preventDefault()
+  console.log('In showOMDbMovie')
+  console.log($(event.target).attr('data-id'))
+  const movieID = $(event.target).attr('data-id')
+  console.log(movieID)
+  api.showOMDbMovie(movieID)
+    .then(ui.showOMDbMovieSuccess)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -166,6 +176,7 @@ const addHandlers = () => {
   $('#delete-movie').on('submit', onDeleteMovie)
   $('#search-by-title').on('submit', onSearchByTitle)
   $('#search-OMDB').on('submit', onSearchOMDb)
+  $('.search-OMDB-movies-table').on('click', onShowOMDbMovie)
 }
 
 module.exports = {
