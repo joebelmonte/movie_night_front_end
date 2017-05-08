@@ -120,14 +120,14 @@ const getAllMoviesSuccess = (data) => {
   console.log('the length of the movie array is ' + data.movies.length)
   const sortedMovies = data.movies.sort(dynamicSort('name'))
   const showMoviesHTML = showMoviesTemplate({ movies: sortedMovies })
-  $('tbody').html(showMoviesHTML)
+  $('.all-movies-table').html(showMoviesHTML)
 }
 
 const getSearchedMoviesSuccess = (data) => {
   console.log('In getSearchedMoviesSuccess and the data is ', data)
   const sortedMovies = data.sort(dynamicSort('name'))
   const showMoviesHTML = showMoviesTemplate({ movies: sortedMovies })
-  $('tbody').html(showMoviesHTML)
+  $('.all-movies-table').html(showMoviesHTML)
   $('#search-by-title').trigger('reset')
 }
 
@@ -136,7 +136,7 @@ const getSelectedMovieSuccess = (data) => {
   console.log('in getSelectedMovieSuccess and the data.movie is ', data.movie)
   console.log('in getSelectedMovieSuccess and the data.movie.name is ', data.movie.name)
   const showMovieHTML = showMovieTemplate({ movies: data })
-  $('tbody').html(showMovieHTML)
+  $('.all-movies-table').html(showMovieHTML)
   // $('.rows').click(function () {
   //   alert('click')
   // })
