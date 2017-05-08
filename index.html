@@ -70,8 +70,13 @@
     </form>
     <form id="show-all-movies">
       <fieldset>
-        <!-- <input type="text" name="movie[name]" placeholder="Enter Movie Name Here"> -->
-        <input type="submit" name="submit" value="Show all movies">
+        <input type="submit" name="submit" name="movie[name]" value="Show all movies">
+      </fieldset>
+    </form>
+    <form id="search-by-title">
+      <fieldset>
+        <input type="text" name="movie[name]" placeholder="Search by title">
+        <input type="submit" name="submit" value="Search">
       </fieldset>
     </form>
     <div class="container">

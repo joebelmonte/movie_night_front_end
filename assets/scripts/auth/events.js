@@ -103,6 +103,43 @@ const onDeleteMovie = function (event) {
   api.deleteMovie(movieID)
 }
 
+let allMovies = {}
+
+const assignAllMovies = function (data) {
+  allMovies = data
+  console.log('in assignAllMovies and data is ', allMovies)
+}
+
+function filterMovies (query) {
+  console.log('in filterMovies and allMovies is', allMovies)
+  return allMovies.movies.filter(function (el) {
+    return el.name.toLowerCase().indexOf(query.toLowerCase()) > -1
+  })
+}
+
+const onSearchByTitle = function (event) {
+  event.preventDefault()
+  console.log('In onSearchByTitle')
+  const data = getFormFields(this)
+  console.log(data)
+  console.log(data.movie.name)
+  let filterMoviesResults = []
+  // allMovies = api.getUsersMovies()
+  // console.log('in onSeachByTitle and allMovies is ', allMovies)
+  const searchCriteria = data.movie.name
+  console.log('search criteria is ', searchCriteria)
+  api.getUsersMovies()
+    .then(assignAllMovies)
+    .then(() => {
+      filterMoviesResults = filterMovies(searchCriteria)
+      console.log('the result of the filter is ', filterMoviesResults)
+    })
+  // console.log('right before I send it to the filter allMovies is ', allMovies)
+  // const filterMoviesResults = filterMovies(searchCriteria)
+  // console.log('the filtered movies are: ', filterMoviesResults)
+  // console.log('the result of the filter is ', filterMoviesResults)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -113,6 +150,7 @@ const addHandlers = () => {
   $('.all-movies-table').on('click', showOneMovie)
   $('#update-movie').on('submit', onUpdateMovie)
   $('#delete-movie').on('submit', onDeleteMovie)
+  $('#search-by-title').on('submit', onSearchByTitle)
 }
 
 module.exports = {
