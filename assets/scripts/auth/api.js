@@ -59,6 +59,42 @@ const addNewMovie = (data) => {
   })
 }
 
+const addNewMovieFromOMDb = (movie) => {
+  console.log('in addNewMovie and data is ', movie)
+  return $.ajax({
+    url: config.apiOrigin + '/movies',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: movie
+  })
+}
+
+// const addNewMovieFromOMDb = (movie) => {
+//   console.log('in addNewMovie and data is ', movie)
+//   return $.ajax({
+//     url: config.apiOrigin + '/movies',
+//     method: 'POST',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: {
+//         "movie": {
+//           "name": "${movie.name}",
+//           "year_released": "",
+//           "mpaa_rating": "",
+//           "user_rating": "",
+//           "length": "",
+//           "ownership_status": "",
+//           "ownership_type": "",
+//           "last_viewing": "",
+//           "times_watched": "",
+//         }
+//       }
+//   })
+// }
+
 const getUsersMovies = (data) => {
   return $.ajax({
     url: config.apiOrigin + '/movies',
@@ -126,5 +162,6 @@ module.exports = {
   updateMovie,
   deleteMovie,
   searchOMDb,
-  showOMDbMovie
+  showOMDbMovie,
+  addNewMovieFromOMDb
 }

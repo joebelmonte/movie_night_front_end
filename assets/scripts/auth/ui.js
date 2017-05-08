@@ -134,7 +134,7 @@ const getSearchedMoviesSuccess = (data) => {
 const getSelectedMovieSuccess = (data) => {
   console.log('in getSelectedMovieSuccess and the data is ', data)
   console.log('in getSelectedMovieSuccess and the data.movie is ', data.movie)
-  console.log('in getSelectedMovieSuccess and the data.movie.name is ', data.movie.name)
+  console.log('in getSelectedMovieSuccess and the data.movie.name is ', data.Movies.Title)
   const showMovieHTML = showMovieTemplate({ movies: data })
   $('tbody').html(showMovieHTML)
   // $('.rows').click(function () {
@@ -154,7 +154,7 @@ const searchOMDbSuccess = (data) => {
 const showOMDbMovieSuccess = (movie) => {
   console.log('in showOMDbMovieSuccess and the data is ', movie)
   console.log('movie.Title is ', movie.Title)
-  let singleMovieArray = []
+  const singleMovieArray = []
   singleMovieArray.push(movie)
   console.log('singleMovieArray is ', singleMovieArray)
   const showMovieHTML = showOMDbSingleMovie({ movies: singleMovieArray })

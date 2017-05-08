@@ -164,6 +164,39 @@ const onShowOMDbMovie = function (event) {
     .then(ui.showOMDbMovieSuccess)
 }
 
+const AddOMDbMovieSuccess = (data) => {
+  console.log('In onAddOMDbMovieSuccess and data is ', data)
+  console.log('In onAddOMDbMovieSuccess and title is ', data.Title)
+  const movie = { movie: {
+    last_viewing: '',
+    length: data.Runtime.replace(' min', ''),
+    mpaa_rating: data.Rated,
+    name: data.Title,
+    ownership_status: '',
+    ownership_type: '',
+    times_watched: '',
+    user_rating: '',
+    year_released: data.Year
+  }
+  }
+  console.log('and the movie variable is ', movie)
+  api.addNewMovieFromOMDb(movie)
+  //   .then(ui.addNewMovieSuccess)
+  //   .catch(ui.addNewMovieFailure)
+}
+
+const onAddOMDbMovie = function (event) {
+  event.preventDefault()
+  console.log('In onAddOMDbMovie')
+  console.log($(event.target).attr('data-id'))
+  const movieID = $(event.target).attr('data-id')
+  console.log(movieID)
+  const movieToAdd = api.showOMDbMovie(movieID)
+  console.log('the movie to add is ', movieToAdd)
+  api.showOMDbMovie(movieID)
+    .then(AddOMDbMovieSuccess)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -177,6 +210,7 @@ const addHandlers = () => {
   $('#search-by-title').on('submit', onSearchByTitle)
   $('#search-OMDB').on('submit', onSearchOMDb)
   $('.search-OMDB-movies-table').on('click', onShowOMDbMovie)
+  $('.OMDB-movie-detail-table').on('click', onAddOMDbMovie)
 }
 
 module.exports = {
