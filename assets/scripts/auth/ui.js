@@ -2,6 +2,7 @@ const store = require('../store.js')
 const showMoviesTemplate = require('../templates/movie-listing.handlebars')
 const showMovieTemplate = require('../templates/single-movie-listing.handlebars')
 const showOMDbSearchTemplate = require('../templates/movie-listing-OMDB-search.handlebars')
+const showOMDbSingleMovie = require('../templates/single-movie-listing-OMDb.handlebars')
 
 const signUpSuccess = (data) => {
     console.log("In signUpSuccess")
@@ -150,8 +151,15 @@ const searchOMDbSuccess = (data) => {
   $('.search-OMDB-movies-table').html(showMovieHTML)
 }
 
-const showOMDbMovieSuccess = (data) => {
-  console.log('in showOMDbMovieSuccess and the data is ', data)
+const showOMDbMovieSuccess = (movie) => {
+  console.log('in showOMDbMovieSuccess and the data is ', movie)
+  console.log('movie.Title is ', movie.Title)
+  let singleMovieArray = []
+  singleMovieArray.push(movie)
+  console.log('singleMovieArray is ', singleMovieArray)
+  const showMovieHTML = showOMDbSingleMovie({ movies: singleMovieArray })
+  // console.log('showMovieHTML is ', showMovieHTML)
+  $('.OMDB-movie-detail-table').html(showMovieHTML)
 }
 
 module.exports = {
