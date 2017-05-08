@@ -134,7 +134,7 @@ const getSearchedMoviesSuccess = (data) => {
 const getSelectedMovieSuccess = (data) => {
   console.log('in getSelectedMovieSuccess and the data is ', data)
   console.log('in getSelectedMovieSuccess and the data.movie is ', data.movie)
-  console.log('in getSelectedMovieSuccess and the data.movie.name is ', data.Movies.Title)
+  console.log('in getSelectedMovieSuccess and the data.movie.name is ', data.movie.name)
   const showMovieHTML = showMovieTemplate({ movies: data })
   $('tbody').html(showMovieHTML)
   // $('.rows').click(function () {
