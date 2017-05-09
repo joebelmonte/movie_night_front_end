@@ -44,18 +44,6 @@ const signOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-const onAddNewMovie = function (event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  // console.log(data)
-  // console.log(data.submit)
-  // console.log(data.movie.name)
-  api.addNewMovie(data)
-    .then(ui.addNewMovieSuccess)
-    .catch(ui.addNewMovieFailure)
-  console.log('completed onSignIn')
-}
-
 const getAllMovies = function (event) {
   event.preventDefault()
   // console.log(data)
@@ -66,6 +54,22 @@ const getAllMovies = function (event) {
     .then(ui.getAllMoviesSuccess)
     // .catch(ui.addNewMovieFailure)
   console.log('completed get users movies')
+}
+
+const onAddNewMovie = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  // console.log(data)
+  // console.log(data.submit)
+  // console.log(data.movie.name)
+  api.addNewMovie(data)
+    .then(ui.addNewMovieSuccess)
+    .then(() => {
+      api.getUsersMovies()
+        .then(ui.getAllMoviesSuccess)
+    })
+    .catch(ui.addNewMovieFailure)
+  console.log('completed onSignIn')
 }
 
 const showOneMovie = (event) => {
@@ -199,6 +203,19 @@ const onAddOMDbMovie = function (event) {
     .then(AddOMDbMovieSuccess)
 }
 
+const showOnAddNewMovie = function (event) {
+  event.preventDefault()
+  console.log('in showonAddNewMovie')
+  $('.new-movie-entry-instructions').show()
+}
+
+const hideOnAddNewMovie = function (event) {
+  event.preventDefault()
+  console.log('in hideOnAddNewMovie')
+  $('.new-movie-entry-instructions').hide()
+  $('#new-movie').trigger('reset')
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -213,6 +230,8 @@ const addHandlers = () => {
   $('#search-OMDB').on('submit', onSearchOMDb)
   $('.search-OMDB-movies-table').on('click', onShowOMDbMovie)
   $('.OMDB-movie-detail-table').on('click', onAddOMDbMovie)
+  $('.input-new-movie').on('click', showOnAddNewMovie)
+  $('.cancel-input-new-movie').on('click', hideOnAddNewMovie)
 }
 
 module.exports = {

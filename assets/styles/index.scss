@@ -48,6 +48,14 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
 footer {
   // position: fixed;
   bottom: 10px;
@@ -72,4 +80,34 @@ footer {
   display: none;
   // float: right;
   // padding: 10px;
+}
+
+.new-movie-entry-instructions{
+  display: none;
+  // float: left;
+}
+
+.your-movies{
+  display: none;
+  // float: left;
+}
+
+.omdb-search-results{
+  display: none;
+  // float: left;
+}
+
+.omdb-search-results-details{
+  display: none;
+  // float: left;
+}
+
+#update-movie{
+  display: none;
+  // float: left;
+}
+
+#delete-movie{
+  display: none;
+  // float: left;
 }

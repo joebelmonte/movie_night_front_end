@@ -84,6 +84,7 @@ const addNewMovieSuccess = (data) => {
   console.log('in addNewMovieSuccess ')
   $('#createMovieSuccess').modal('show')
   $('#new-movie').trigger('reset')
+  $('.new-movie-entry-instructions').hide()
 }
 
 const onUpdateMovieSuccess = (data) => {
@@ -109,7 +110,7 @@ function dynamicSort (property) {
     property = property.substr(1)
   }
   return function (a, b) {
-    const result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0
+    const result = (a[property].toUpperCase() < b[property].toUpperCase()) ? -1 : (a[property].toUpperCase() > b[property].toUpperCase()) ? 1 : 0
     return result * sortOrder
   }
 }
@@ -122,6 +123,7 @@ const getAllMoviesSuccess = (data) => {
   const sortedMovies = data.movies.sort(dynamicSort('name'))
   const showMoviesHTML = showMoviesTemplate({ movies: sortedMovies })
   $('.all-movies-table').html(showMoviesHTML)
+  $('.your-movies').show()
 }
 
 const getSearchedMoviesSuccess = (data) => {
