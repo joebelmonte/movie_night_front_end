@@ -213,6 +213,15 @@ const showOnAddNewMovie = function (event) {
   event.preventDefault()
   console.log('in showonAddNewMovie')
   $('.new-movie-entry-instructions').show()
+  $('.your-movies').hide()
+  $('#update-movie').hide()
+  $('#delete-movie').hide()
+  $('.omdb-search-results').hide()
+  $('.omdb-search-results-details').hide()
+  $('#new-movie').trigger('reset')
+  $('#update-movie').trigger('reset')
+  $('#search-OMDB').trigger('reset')
+  $('#search-by-title').trigger('reset')
 }
 
 const hideOnAddNewMovie = function (event) {
@@ -228,6 +237,7 @@ const onCancelOMDbSearch = function (event) {
   $('#search-OMDB').trigger('reset')
   $('.omdb-search-results').hide()
   $('.omdb-search-results-details').hide()
+  $('#search-by-title').trigger('reset')
 }
 
 const onBackToOMDbSearch = function (event) {

@@ -139,7 +139,15 @@ const getAllMoviesSuccess = (data) => {
   const sortedMovies = data.movies.sort(dynamicSort('name'))
   const showMoviesHTML = showMoviesTemplate({ movies: sortedMovies })
   $('.all-movies-table').html(showMoviesHTML)
+  $('#update-movie').hide()
+  $('#delete-movie').hide()
+  $('.omdb-search-results').hide()
+  $('.omdb-search-results-details').hide()
+  $('.new-movie-entry-instructions').hide()
   $('.your-movies').show()
+  $('.your-movies-subheading').text('Click on a movie to edit it.')
+  $('#search-OMDB').trigger('reset')
+  $('#search-by-title').trigger('reset')
 }
 
 const getSearchedMoviesSuccess = (data) => {
@@ -148,7 +156,13 @@ const getSearchedMoviesSuccess = (data) => {
   const showMoviesHTML = showMoviesTemplate({ movies: sortedMovies })
   $('.all-movies-table').html(showMoviesHTML)
   $('#search-by-title').trigger('reset')
+  $('#update-movie').hide()
+  $('#delete-movie').hide()
+  $('.omdb-search-results').hide()
+  $('.omdb-search-results-details').hide()
+  $('.new-movie-entry-instructions').hide()
   $('.your-movies').show()
+  $('#search-OMDB').trigger('reset')
 }
 
 const getSelectedMovieSuccess = (data) => {
@@ -160,6 +174,9 @@ const getSelectedMovieSuccess = (data) => {
   $('#update-movie').show()
   $('#delete-movie').show()
   $('.your-movies-subheading').text('Use the form below to update information about the movie or delete it from your database')
+  $('.omdb-search-results').hide()
+  $('.omdb-search-results-details').hide()
+  $('.new-movie-entry-instructions').hide()
 }
 
 const searchOMDbSuccess = (data) => {
@@ -171,6 +188,11 @@ const searchOMDbSuccess = (data) => {
   $('.search-OMDB-movies-table').html(showMovieHTML)
   $('.omdb-search-results').show()
   $('.omdb-search-results-details').hide()
+  $('.your-movies').hide()
+  $('#update-movie').hide()
+  $('#delete-movie').hide()
+  $('.new-movie-entry-instructions').hide()
+  $('#search-by-title').trigger('reset')
 }
 
 const showOMDbMovieSuccess = (movie) => {
