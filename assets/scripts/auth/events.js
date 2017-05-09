@@ -176,6 +176,8 @@ const AddOMDbMovieSuccess = (data) => {
     ownership_type: '',
     times_watched: '',
     user_rating: '',
+    director: data.Director,
+    imdbRating: data.imdbRating,
     year_released: data.Year
   }
   }
