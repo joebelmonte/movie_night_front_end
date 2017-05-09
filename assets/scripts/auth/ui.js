@@ -25,6 +25,7 @@ const signInSuccess = (data) => {
   $('#change-password').show()
   $('#LogInSuccess').modal('show')
   $('.status-message').text('Use the buttons to the left to view your database, or search IMDB via the Open Movie Database.')
+  $('.movie-controls').show()
 }
 
 const signInFailure = (error) => {
@@ -42,6 +43,7 @@ const autoSignInSuccess = (data) => {
   $('#sign-in').hide()
   $('#change-password').show()
   $('.status-message').text('Use the buttons to the left to view your database, or search IMDB via the Open Movie Database.')
+  $('.movie-controls').show()
 }
 
 const autoSignInFailure = (error) => {
@@ -85,6 +87,7 @@ const signOutSuccess = (data) => {
   $('.omdb-search-results').hide()
   $('.omdb-search-results-details').hide()
   $('.new-movie-entry-instructions').hide()
+  $('.movie-controls').hide()
 }
 
 const signOutFailure = (data) => {
@@ -98,7 +101,6 @@ const addNewMovieSuccess = (data) => {
   $('#createMovieSuccess').modal('show')
   $('#new-movie').trigger('reset')
   $('.new-movie-entry-instructions').hide()
-
 }
 
 const onUpdateMovieSuccess = (data) => {
