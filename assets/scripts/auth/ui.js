@@ -118,6 +118,7 @@ const getAllMoviesSuccess = (data) => {
   console.log('the response is ' + data)
   console.log('data.movies is' + data.movies)
   console.log('the length of the movie array is ' + data.movies.length)
+  console.log('the first movie is ' + data.movies[0])
   const sortedMovies = data.movies.sort(dynamicSort('name'))
   const showMoviesHTML = showMoviesTemplate({ movies: sortedMovies })
   $('.all-movies-table').html(showMoviesHTML)
