@@ -155,6 +155,7 @@ const searchOMDbSuccess = (data) => {
   console.log('sorted movies is: ', sortedMovies)
   const showMovieHTML = showOMDbSearchTemplate({ movies: sortedMovies })
   $('.search-OMDB-movies-table').html(showMovieHTML)
+  $('.omdb-search-results').show()
 }
 
 const showOMDbMovieSuccess = (movie) => {

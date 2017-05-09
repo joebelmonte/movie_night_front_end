@@ -222,6 +222,14 @@ const hideOnAddNewMovie = function (event) {
   $('#new-movie').trigger('reset')
 }
 
+const onCancelOMDbSearch = function (event) {
+  event.preventDefault()
+  console.log('in onCancelOMDbSearch')
+  $('#search-OMDB').trigger('reset')
+  $('.omdb-search-results').hide()
+  $('.omdb-search-results-details').hide()
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -238,6 +246,7 @@ const addHandlers = () => {
   $('.OMDB-movie-detail-table').on('click', onAddOMDbMovie)
   $('.input-new-movie').on('click', showOnAddNewMovie)
   $('.cancel-input-new-movie').on('click', hideOnAddNewMovie)
+  $('.cancel-OMDb-Search').on('click', onCancelOMDbSearch)
 }
 
 module.exports = {
