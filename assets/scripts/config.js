@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://gentle-ridge-28470.herokuapp.com'
+    production: 'https://salty-badlands-93517.herokuapp.com'
   }
 }
 
