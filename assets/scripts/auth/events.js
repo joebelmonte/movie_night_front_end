@@ -193,8 +193,8 @@ const AddOMDbMovieSuccess = (data) => {
   }
   console.log('and the movie variable is ', movie)
   api.addNewMovieFromOMDb(movie)
-  //   .then(ui.addNewMovieSuccess)
-  //   .catch(ui.addNewMovieFailure)
+    .then(ui.addNewMovieFromOMDbSuccess)
+    .catch(ui.addNewMovieFromOMDbFailure)
 }
 
 const onAddOMDbMovie = function (event) {
@@ -230,6 +230,13 @@ const onCancelOMDbSearch = function (event) {
   $('.omdb-search-results-details').hide()
 }
 
+const onBackToOMDbSearch = function (event) {
+  event.preventDefault()
+  console.log('in onBackToOMDbSearch')
+  $('.omdb-search-results').show()
+  $('.omdb-search-results-details').hide()
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -247,6 +254,7 @@ const addHandlers = () => {
   $('.input-new-movie').on('click', showOnAddNewMovie)
   $('.cancel-input-new-movie').on('click', hideOnAddNewMovie)
   $('.cancel-OMDb-Search').on('click', onCancelOMDbSearch)
+  $('.back-to-OMDb-search').on('click', onBackToOMDbSearch)
 }
 
 module.exports = {

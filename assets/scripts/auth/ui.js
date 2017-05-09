@@ -156,6 +156,7 @@ const searchOMDbSuccess = (data) => {
   const showMovieHTML = showOMDbSearchTemplate({ movies: sortedMovies })
   $('.search-OMDB-movies-table').html(showMovieHTML)
   $('.omdb-search-results').show()
+  $('.omdb-search-results-details').hide()
 }
 
 const showOMDbMovieSuccess = (movie) => {
@@ -167,6 +168,8 @@ const showOMDbMovieSuccess = (movie) => {
   const showMovieHTML = showOMDbSingleMovie({ movies: singleMovieArray })
   // console.log('showMovieHTML is ', showMovieHTML)
   $('.OMDB-movie-detail-table').html(showMovieHTML)
+  $('.omdb-search-results-details').show()
+  $('.omdb-search-results').hide()
 }
 
 const deleteMovieSuccess = (data) => {
@@ -178,6 +181,19 @@ const deleteMovieFailure = (error) => {
   console.error(error)
   console.log('in deleteMovieFailure')
   $('#delete-movie-failure').modal('show')
+}
+
+const addNewMovieFromOMDbSuccess = (data) => {
+  console.log('in addNewMovieFromOMDbSuccess')
+  $('#add-OMDB-success').modal('show')
+  $('.omdb-search-results-details').hide()
+  $('#search-OMDB').trigger('reset')
+}
+
+const addNewMovieFromOMDbFailure = (error) => {
+  console.error(error)
+  console.log('in addNewMovieFromOMDbFailure')
+  $('#add-OMDb-movie-failure').modal('show')
 }
 
 module.exports = {
@@ -201,5 +217,7 @@ module.exports = {
   searchOMDbSuccess,
   showOMDbMovieSuccess,
   deleteMovieSuccess,
-  deleteMovieFailure
+  deleteMovieFailure,
+  addNewMovieFromOMDbSuccess,
+  addNewMovieFromOMDbFailure
 }

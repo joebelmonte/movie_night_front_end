@@ -166,8 +166,9 @@
     </div>
     <div class="omdb-search-results-details">
       <h2>Search Details on Selected Movie</h2>
-      <p>Click on a movie below to add it to your database or click cancel to return to
-        search results.</p>
+      <h3>Click on a movie below to add it to your database or click cancel to return to
+        search results.</h3>
+      <input type="submit" class="back-to-OMDb-search" name="submit" value="Back">
       <table class="table table-hover">
         <thead>
           <tr>
@@ -185,7 +186,6 @@
             <!--Handlebars output goes here  -->
         </tbody>
       </table>
-      <input type="submit" name="submit" value="Cancel">
     <!-- <div id="content" class="content">
     </div> -->
     </div>
@@ -455,6 +455,48 @@
           </div>
           <div class="modal-body">
             <p>There was a problem deleting your movie.  Please try again.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+<!-- Modal End -->
+<!-- Modal Start -->
+    <div id="add-OMDB-success" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Alert</h4>
+          </div>
+          <div class="modal-body">
+            <p>This movie was successfully added to your database.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+<!-- Modal End -->
+<!-- Modal Start -->
+    <div id="add-OMDb-movie-failure" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Alert</h4>
+          </div>
+          <div class="modal-body">
+            <p>There was a problem adding the movie.  Please try again.</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
