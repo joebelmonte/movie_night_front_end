@@ -74,6 +74,16 @@ const signOutSuccess = (data) => {
   $('#signOutSuccess').modal('show')
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
+  $('#change-password').trigger('reset')
+  $('#new-movie').trigger('reset')
+  $('#update-movie').trigger('reset')
+  $('#search-by-title').trigger('reset')
+  $('#search-OMDB').trigger('reset')
+  $('.your-movies').hide()
+  $('#update-movie').hide()
+  $('#delete-movie').hide()
+  $('.omdb-search-results').hide()
+  $('.omdb-search-results-details').hide()
 }
 
 const signOutFailure = (data) => {
@@ -175,6 +185,8 @@ const showOMDbMovieSuccess = (movie) => {
 const deleteMovieSuccess = (data) => {
   console.log('in deleteMovieSuccess')
   $('#delete-movie-success').modal('show')
+  $('#update-movie').hide()
+  $('#delete-movie').hide()
 }
 
 const deleteMovieFailure = (error) => {
