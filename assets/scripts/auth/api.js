@@ -138,14 +138,14 @@ const deleteMovie = (movieID) => {
 
 const searchOMDb = (data) => {
   return $.ajax({
-    url: 'http://www.omdbapi.com/?s=' + data,
+    url: 'https://www.omdbapi.com/?s=' + data,
     method: 'GET'
   })
 }
 
 const showOMDbMovie = (data) => {
   return $.ajax({
-    url: 'http://www.omdbapi.com/?i=' + data,
+    url: 'https://www.omdbapi.com/?i=' + data,
     method: 'GET'
   })
 }
