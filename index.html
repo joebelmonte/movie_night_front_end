@@ -44,7 +44,8 @@
       </ul>
       <h1>MyMDb</h1>
 
-      <p class="status-message">Welcome to MyMDb - your own personal IMDB.  Please create an account below or sign in above.</p>
+      <h3 class="status-message">Welcome to MyMDb - your own personal IMDB.
+        Please create an account below or sign in above.</h3>
     <form id="sign-up">
       <fieldset>
         <!-- <legend>Sign up!</legend> -->
@@ -95,6 +96,7 @@
   </div>
     <div class="your-movies">
       <h2>Your Movies</h2>
+      <h3 class="your-movies-subheading">Click on a movie to edit it.</h3>
       <!-- <p>The .table-hover class enables a hover state on table rows:</p> -->
       <table class="table table-hover">
         <thead>
@@ -410,6 +412,48 @@
           </div>
           <div class="modal-body">
             <p>Your movie was NOT successfully updated. Please try again.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+<!-- Modal End -->
+<!-- Modal Start -->
+    <div id="delete-movie-success" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Alert</h4>
+          </div>
+          <div class="modal-body">
+            <p>Your movie has been deleted.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+<!-- Modal End -->
+<!-- Modal Start -->
+    <div id="delete-movie-failure" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Alert</h4>
+          </div>
+          <div class="modal-body">
+            <p>There was a problem deleting your movie.  Please try again.</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

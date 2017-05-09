@@ -24,6 +24,7 @@ const signInSuccess = (data) => {
   $('#sign-in').hide()
   $('#change-password').show()
   $('#LogInSuccess').modal('show')
+  $('.status-message').text('Use the buttons to the left to view your database, or search IMDB via the Open Movie Database.')
 }
 
 const signInFailure = (error) => {
@@ -40,10 +41,11 @@ const autoSignInSuccess = (data) => {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#change-password').show()
+  $('.status-message').text('Use the buttons to the left to view your database, or search IMDB via the Open Movie Database.')
 }
 
 const autoSignInFailure = (error) => {
-  // console.error(error)
+  console.error(error)
   console.log("auto sign in failure")
   $('#LogFailure').modal('show')
 }
@@ -132,6 +134,7 @@ const getSearchedMoviesSuccess = (data) => {
   const showMoviesHTML = showMoviesTemplate({ movies: sortedMovies })
   $('.all-movies-table').html(showMoviesHTML)
   $('#search-by-title').trigger('reset')
+  $('.your-movies').show()
 }
 
 const getSelectedMovieSuccess = (data) => {
@@ -140,9 +143,9 @@ const getSelectedMovieSuccess = (data) => {
   console.log('in getSelectedMovieSuccess and the data.movie.name is ', data.movie.name)
   const showMovieHTML = showMovieTemplate({ movies: data })
   $('.all-movies-table').html(showMovieHTML)
-  // $('.rows').click(function () {
-  //   alert('click')
-  // })
+  $('#update-movie').show()
+  $('#delete-movie').show()
+  $('.your-movies-subheading').text('Use the form below to update information about the movie or delete it from your database')
 }
 
 const searchOMDbSuccess = (data) => {
@@ -165,6 +168,17 @@ const showOMDbMovieSuccess = (movie) => {
   $('.OMDB-movie-detail-table').html(showMovieHTML)
 }
 
+const deleteMovieSuccess = (data) => {
+  console.log('in deleteMovieSuccess')
+  $('#delete-movie-success').modal('show')
+}
+
+const deleteMovieFailure = (error) => {
+  console.error(error)
+  console.log('in deleteMovieFailure')
+  $('#delete-movie-failure').modal('show')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -184,5 +198,7 @@ module.exports = {
   onUpdateMovieFailure,
   getSearchedMoviesSuccess,
   searchOMDbSuccess,
-  showOMDbMovieSuccess
+  showOMDbMovieSuccess,
+  deleteMovieSuccess,
+  deleteMovieFailure
 }

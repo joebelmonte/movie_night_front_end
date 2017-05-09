@@ -105,6 +105,12 @@ const onDeleteMovie = function (event) {
   // const data = getFormFields(this)
   console.log('In onDeleteMovie and movieID is', movieID)
   api.deleteMovie(movieID)
+      .then(ui.deleteMovieSuccess)
+      .then(() => {
+        api.getUsersMovies()
+          .then(ui.getAllMoviesSuccess)
+      })
+      .catch(ui.deleteMovieFailure)
 }
 
 let allMovies = {}
