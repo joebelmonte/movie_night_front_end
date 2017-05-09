@@ -84,6 +84,7 @@ const signOutSuccess = (data) => {
   $('#delete-movie').hide()
   $('.omdb-search-results').hide()
   $('.omdb-search-results-details').hide()
+  $('.new-movie-entry-instructions').hide()
 }
 
 const signOutFailure = (data) => {
@@ -97,6 +98,7 @@ const addNewMovieSuccess = (data) => {
   $('#createMovieSuccess').modal('show')
   $('#new-movie').trigger('reset')
   $('.new-movie-entry-instructions').hide()
+
 }
 
 const onUpdateMovieSuccess = (data) => {
