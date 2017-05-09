@@ -44,19 +44,32 @@
       </ul>
       <h1>MyMDb</h1>
 
-      <p>Welcome to my Movie Night Web app.  Please create an account below or sign in above.</p>
+      <p class="status-message">Welcome to MyMDB - your own personal IMDB.  Please create an account below or sign in above.</p>
     <form id="sign-up">
       <fieldset>
         <!-- <legend>Sign up!</legend> -->
-        <input type="text" name="credentials[email]" placeholder="Email">
-        <input type="password" name="credentials[password]" placeholder="Password">
-        <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation">
+        <input type="text" name="credentials[email]" placeholder="Email"><br>
+        <input type="password" name="credentials[password]" placeholder="Password"><br>
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"><br>
         <input type="submit" name="submit" value="Sign up">
       </fieldset>
     </form>
+    <form id="show-all-movies">
+      <fieldset>
+        <input type="submit" name="submit" name="movie[name]" value="Show all of your movies">
+      </fieldset>
+    </form>
+      <input type="submit" name="submit" value="Input a new movie into your database."><br><br>
+    <form id="search-by-title">
+      <fieldset>
+        <input type="text" name="movie[name]" placeholder="Search by title">
+        <input type="submit" name="submit" value="Search">
+      </fieldset>
+    </form>
+    <p class="new-movie-entry-instructions">Enter the details for your new movie below.  Note: a title is required.
+      All other fields are optional.</p>
     <form id="new-movie">
       <fieldset>
-        <input type="submit" name="submit" value="Create New Movie"><br>
         <input type="text" name="movie[name]" placeholder="Title (Required)">
         <input type="text" name="movie[year_released]" placeholder="Year Released">
         <input type="text" name="movie[director]" placeholder="Director">
@@ -66,20 +79,11 @@
         <input type="text" name="movie[length]" placeholder="Length (min)">
         <input type="text" name="movie[ownership_type]" placeholder="Method of ownership">
         <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="movie[last_viewing]" placeholder="Last time viewed">
-        <input type="text" name="movie[times_watched]" placeholder="Number of times watched">
+        <input type="text" name="movie[times_watched]" placeholder="Times watched"><br>
+        <input type="submit" name="submit" value="Create New Movie">
       </fieldset>
     </form>
-    <form id="show-all-movies">
-      <fieldset>
-        <input type="submit" name="submit" name="movie[name]" value="Show all movies">
-      </fieldset>
-    </form>
-    <form id="search-by-title">
-      <fieldset>
-        <input type="text" name="movie[name]" placeholder="Search by title">
-        <input type="submit" name="submit" value="Search">
-      </fieldset>
-    </form>
+    <input type="submit" name="submit" value="Cancel">
     <div class="container">
       <h2>Your Movies</h2>
       <!-- <p>The .table-hover class enables a hover state on table rows:</p> -->
@@ -117,7 +121,7 @@
         <input type="text" name="movie[length]" placeholder="Length (min)">
         <input type="text" name="movie[ownership_type]" placeholder="Method of ownership">
         <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')"  name="movie[last_viewing]" placeholder="Last time viewed">
-        <input type="text" name="movie[times_watched]" placeholder="Number of times watched">
+        <input type="text" name="movie[times_watched]" placeholder="Times watched">
       </fieldset>
     </form>
     <form id="delete-movie">
