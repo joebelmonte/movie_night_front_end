@@ -11,7 +11,7 @@
 
 
 ## Planning, Development, and Problem Solving
-git 
+
 My app is called MyMDb, a play on IMDb - because it's designed to be a personal movie database.
 
 The idea was to build a personal database of movies that a user could populate and maintain
