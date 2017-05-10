@@ -157,16 +157,21 @@ const getSelectedMovieSuccess = (data) => {
 }
 
 const searchOMDbSuccess = (data) => {
-  const sortedMovies = data.Search.sort(dynamicSort('Title'))
-  const showMovieHTML = showOMDbSearchTemplate({ movies: sortedMovies })
-  $('.search-OMDB-movies-table').html(showMovieHTML)
-  $('.omdb-search-results').show()
-  $('.omdb-search-results-details').hide()
-  $('.your-movies').hide()
-  $('#update-movie').hide()
-  $('#delete-movie').hide()
-  $('.new-movie-entry-instructions').hide()
-  $('#search-by-title').trigger('reset')
+  if (data.Error === 'Movie not found!') {
+    $('#omdb-search-no-results').modal('show')
+    $('.search-OMDB-movies-table').html('')
+  } else {
+    const sortedMovies = data.Search.sort(dynamicSort('Title'))
+    const showMovieHTML = showOMDbSearchTemplate({ movies: sortedMovies })
+    $('.search-OMDB-movies-table').html(showMovieHTML)
+    $('.omdb-search-results').show()
+    $('.omdb-search-results-details').hide()
+    $('.your-movies').hide()
+    $('#update-movie').hide()
+    $('#delete-movie').hide()
+    $('.new-movie-entry-instructions').hide()
+    $('#search-by-title').trigger('reset')
+  }
 }
 
 const showOMDbMovieSuccess = (movie) => {
