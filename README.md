@@ -68,11 +68,11 @@ OMDb.
 haven't been fully implemented yet.
 
 * See a list of movies that I could potentially watch, and filter by the fields above to answer questions like the following:
-** What movies have I watched recently?
-** What movies have I not watched in a while?
-** What movies should I consider watching that I haven’t before?
-** What movies have I watched many times?
-** What movies do I rate the highest?
+  * What movies have I watched recently?
+  * What movies have I not watched in a while?
+  * What movies should I consider watching that I haven’t before?
+  * What movies have I watched many times?
+  * What movies do I rate the highest?
 * Have the DB pick a random movie for me to watch
-** Subject to some criteria, i.e., I own it but haven’t watched it recently or it’s below a given length.
+  * Subject to some criteria, i.e., I own it but haven’t watched it recently or it’s below a given length.
 * Easily record each time I watch a movie. Timestamp should auto-update and counter should increment.
