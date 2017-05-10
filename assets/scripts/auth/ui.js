@@ -234,6 +234,12 @@ const addNewMovieFromOMDbFailure = (error) => {
   $('#add-OMDb-movie-failure').modal('show')
 }
 
+const getAllMoviesFailure = (error) => {
+  console.error(error)
+  console.log('in getAllMoviesFailure')
+  $('#get-All-Movies-Failure').modal('show')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -257,5 +263,6 @@ module.exports = {
   deleteMovieSuccess,
   deleteMovieFailure,
   addNewMovieFromOMDbSuccess,
-  addNewMovieFromOMDbFailure
+  addNewMovieFromOMDbFailure,
+  getAllMoviesFailure
 }

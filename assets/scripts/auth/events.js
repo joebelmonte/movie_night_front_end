@@ -6,7 +6,6 @@ const store = require('../store.js')
 let movieID = 0
 
 const onSignUp = function (event) {
-  console.log("In onSignUp")
   const data = getFormFields(this)
   event.preventDefault()
   api.signUp(data)
@@ -25,7 +24,6 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
-  console.log("completed onSignIn")
 }
 
 const onChangePassword = function (event) {
@@ -46,14 +44,9 @@ const signOut = function (event) {
 
 const getAllMovies = function (event) {
   event.preventDefault()
-  // console.log(data)
-  // console.log(data.submit)
-  // console.log(data.movie.name)
-  console.log('result of the api call for all movies is ', api.getUsersMovies())
   api.getUsersMovies()
     .then(ui.getAllMoviesSuccess)
-    // .catch(ui.addNewMovieFailure)
-  console.log('completed get users movies')
+    .catch(ui.getAllMoviesFailure)
 }
 
 const onAddNewMovie = function (event) {
@@ -203,19 +196,14 @@ const AddOMDbMovieSuccess = (data) => {
 
 const onAddOMDbMovie = function (event) {
   event.preventDefault()
-  console.log('In onAddOMDbMovie')
-  console.log($(event.target).attr('data-id'))
   const movieID = $(event.target).attr('data-id')
-  console.log(movieID)
   const movieToAdd = api.showOMDbMovie(movieID)
-  console.log('the movie to add is ', movieToAdd)
   api.showOMDbMovie(movieID)
     .then(AddOMDbMovieSuccess)
 }
 
 const showOnAddNewMovie = function (event) {
   event.preventDefault()
-  console.log('in showonAddNewMovie')
   $('.new-movie-entry-instructions').show()
   $('.your-movies').hide()
   $('#update-movie').hide()
@@ -230,14 +218,12 @@ const showOnAddNewMovie = function (event) {
 
 const hideOnAddNewMovie = function (event) {
   event.preventDefault()
-  console.log('in hideOnAddNewMovie')
   $('.new-movie-entry-instructions').hide()
   $('#new-movie').trigger('reset')
 }
 
 const onCancelOMDbSearch = function (event) {
   event.preventDefault()
-  console.log('in onCancelOMDbSearch')
   $('#search-OMDB').trigger('reset')
   $('.omdb-search-results').hide()
   $('.omdb-search-results-details').hide()
@@ -246,7 +232,6 @@ const onCancelOMDbSearch = function (event) {
 
 const onBackToOMDbSearch = function (event) {
   event.preventDefault()
-  console.log('in onBackToOMDbSearch')
   $('.omdb-search-results').show()
   $('.omdb-search-results-details').hide()
 }
