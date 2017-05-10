@@ -77,6 +77,7 @@ const signOutSuccess = (data) => {
   $('.omdb-search-results-details').hide()
   $('.new-movie-entry-instructions').hide()
   $('.movie-controls').hide()
+  $('.status-message').text('Welcome to MyMDb - your own personal IMDB. Please create an account below or sign in above.')
 }
 
 const signOutFailure = (data) => {
