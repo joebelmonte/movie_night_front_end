@@ -194,6 +194,10 @@ const AddOMDbMovieSuccess = (data) => {
   console.log('and the movie variable is ', movie)
   api.addNewMovieFromOMDb(movie)
     .then(ui.addNewMovieFromOMDbSuccess)
+    .then(() => {
+      api.getUsersMovies()
+        .then(ui.getAllMoviesSuccess)
+    })
     .catch(ui.addNewMovieFromOMDbFailure)
 }
 
