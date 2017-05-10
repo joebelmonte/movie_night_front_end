@@ -2,7 +2,6 @@ const config = require('../config.js')
 const store = require('../store.js')
 
 const signUp = (data) => {
-  console.log('in signUp and data is ', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-up',
     method: 'POST',
@@ -48,7 +47,6 @@ const signOut = (data) => {
 }
 
 const addNewMovie = (data) => {
-  console.log('in addNewMovie and data is ', data)
   return $.ajax({
     url: config.apiOrigin + '/movies',
     method: 'POST',
@@ -60,7 +58,6 @@ const addNewMovie = (data) => {
 }
 
 const addNewMovieFromOMDb = (movie) => {
-  console.log('in addNewMovie and data is ', movie)
   return $.ajax({
     url: config.apiOrigin + '/movies',
     method: 'POST',
