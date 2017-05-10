@@ -1,5 +1,5 @@
 # MyMDb
-## Joe Belmonte - May 10 2017
+## Joe Belmonte - May 10, 2017
 ## General Assembly, WDI-017
 
 ## URLs
@@ -27,7 +27,8 @@ on some features that don't necessarily standout in the abstract but would be so
 if they were to be taken away.
 
 For example, when the user shows all movies in their DB, I have them sorted in alphabetical
-order in the table.  In order to do this, I found a JavaScript function that can sort
+order in the table instead of the default returned from the API, which has the most recently
+edited/added at the bottom.  In order to do this, I found a JavaScript function that can sort
 an object based on the value of a specified key.  When the app receives the object containing
 the user's  movies, it's sent through this function prior to being sent to handlebars for
 display on the page.
@@ -38,7 +39,7 @@ back from the API.
 
 Since I had some extra time, I decided to tackle one of the additional challenges of
 incorporating a 3rd party API.  IMDb would have been ideal, but they don't have an official
-I found the Open Movie Database (http://www.omdbapi.com/) which is a user supported
+one so I found the [Open Movie Database](http://www.omdbapi.com/) which is a user supported
 API that I found to be fairly accurate and easy to incorporate into my site.
 
 In general, I spent a lot of time thinking about what elements of the page should be displayed/
@@ -61,17 +62,17 @@ OMDb.
 
 ## Wireframes and User Stories
 
-* Wireframes can be found in this repo (Belmonte-WDI-017-Project-2-Wireframes-2017-04-27.pdf)
+* Wireframes can be found in this repo [here](https://github.com/joebelmonte/movie_night_front_end/blob/master/Belmonte-WDI-017-Project-2-Wireframes-2017-04-27.pdf)
 
 * Here are a few of the user stories that I wrote before starting.  Some of them
 haven't been fully implemented yet.
 
-1.	See a list of movies that I could potentially watch, and filter by the fields above to answer questions like the following:
-  a.	What movies have I watched recently?
-  b.	What movies have I not watched in a while?
-  c.	What movies should I consider watching that I haven’t before?
-  d.	What movies have I watched many times?
-  e.	What movies do I rate the highest?
-2.	Have the DB pick a random movie for me to watch
-  a.	Subject to some criteria, i.e., I own it but haven’t watched it recently or it’s below a given length.
-3.	Easily record each time I watch a movie. Timestamp should auto-update and counter should increment.
+* See a list of movies that I could potentially watch, and filter by the fields above to answer questions like the following:
+** What movies have I watched recently?
+** What movies have I not watched in a while?
+** What movies should I consider watching that I haven’t before?
+** What movies have I watched many times?
+** What movies do I rate the highest?
+* Have the DB pick a random movie for me to watch
+** Subject to some criteria, i.e., I own it but haven’t watched it recently or it’s below a given length.
+* Easily record each time I watch a movie. Timestamp should auto-update and counter should increment.
