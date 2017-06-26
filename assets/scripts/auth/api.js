@@ -111,14 +111,14 @@ const deleteMovie = (movieID) => {
 
 const searchOMDb = (data) => {
   return $.ajax({
-    url: 'https://www.omdbapi.com/?s=' + data,
+    url: 'https://www.omdbapi.com/?s=' + data + '&apikey=e462f851',
     method: 'GET'
   })
 }
 
 const showOMDbMovie = (data) => {
   return $.ajax({
-    url: 'https://www.omdbapi.com/?i=' + data,
+    url: 'https://www.omdbapi.com/?i=' + data + '&apikey=e462f851',
     method: 'GET'
   })
 }
