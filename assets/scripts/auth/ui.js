@@ -6,6 +6,7 @@ const showOMDbSingleMovie = require('../templates/single-movie-listing-OMDb.hand
 
 const signUpSuccess = (data) => {
   $('#AccountCreationSuccess').modal('show')
+  console.log('sign up success')
 }
 
 const signUpFailure = (error) => {

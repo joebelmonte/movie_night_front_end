@@ -1,118 +1,120 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+
 body {
-  text-align: left;
-}
-
-
-
-.status-message {
-  text-align: center;
-}
-
-#sign-up {
-  text-align: center;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0px;
-    padding: 5px;
-    overflow: hidden;
-    background-color: blue;
-}
-
-li {
-    float: left;
-    // width: 100%;
-    padding: 10px;
+  background-image: url("../images/pexels-photo-27008.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  font-family: 'Raleway', sans-serif;
 }
 
 h1 {
-  text-align: center;
-  width: 60%;
-  margin: auto;
-  padding: 20px;
+  font-size: 550%;
+  font-weight: 200;
+  margin-bottom: 60px;
 }
 
 h2 {
-  text-align: center;
-  width: 60%;
-  margin: auto;
-  padding: 10px;
+  font-size: 200%;
+  font-weight: 400;
 }
 
-h3 {
-  text-align: center;
-  width: 60%;
-  margin: auto;
-  padding: 10px;
-}
 
-footer {
-  position: fixed;
-  bottom: 0px;
+.welcome-screen {
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: auto;
+  margin-top: 100px;
+  width: 50%;
+  height: 450px;
+  // opacity: 50%;
   text-align: center;
-  background-color: blue;
-  // height: 100px;
-  width: 100%;
+  padding: 20px;
+  border-radius: 5%;
   color: white;
+  // border-color: red;
+  // border: 1px solid #e67e22;
 }
 
-.modalContainer{
-  text-align: left;
-  font-size: 18px;
+
+.sign-up, .sign-in {
+  margin-top: 50px;
+  width: 200px;
+  margin-bottom: 20px;
+  font-size: 150%;
+}
+
+.sign-up {
+  margin-right: 50px;
+}
+.about {
+  display: block;
+  margin: auto;
+  width: 200px;
+  font-size: 150%
+}
+
+
+
+li {
+    float: left;
+}
+
+
+.wrapper {
+  min-height: 100%;
+	position: relative;
+  background-color: gray;
+}
+
+.footer-text {
+  // position: absolute;
+  // bottom: 0;
+  // padding: 1rem;
+  // background-color: #efefef;
+  // text-align: center;
+  // display: block;
 }
 
 #change-password{
   display: none;
-  // float: left;
 }
 
 #signOut{
   display: none;
-  // float: right;
-  // padding: 10px;
 }
 
-.status-message {
-  width: 60%;
-  margin: auto;
-  padding: 20px;
-}
 
 .new-movie-entry-instructions{
   display: none;
-  // float: left;
 }
 
 .your-movies{
   display: none;
-  // float: left;
 }
 
 .omdb-search-results{
   display: none;
-  // float: left;
 }
 
 .omdb-search-results-details{
   display: none;
-  // float: left;
 }
 
 #update-movie{
   display: none;
-  // float: left;
 }
 
 #delete-movie{
   display: none;
-  // float: left;
 }
 
 .movie-controls{
   display: none;
-  // float: left;
+}
+
+// Modals
+.modal-header {
+  // background-color: red;
 }
