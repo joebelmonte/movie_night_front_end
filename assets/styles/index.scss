@@ -85,9 +85,57 @@ footer {
   margin-bottom: 25px;
 }
 
-li {
-    float: left;
+.title-line {
+  text-align: center;
+  font-size: 400%;
+  background-color: #663333;
+  color:#CCCCBB;
 }
+
+.left-pane-nav {
+  background-color: #CCCCBB;
+}
+
+#show-all-movies {
+  margin-top: 10px;
+}
+
+.left-pane-nav p {
+  border-top: 1px solid #663333;
+  margin-top: 10px;
+  padding-top: 10px;
+  font-size: 125%;
+}
+
+
+.title-search-box {
+    height: 31px;
+    padding: 10px 50px 10px 5px;
+    vertical-align: middle;
+}
+
+.btn {
+  vertical-align: middle;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.input-new-movie {
+  margin-top: 10px;
+}
+
+.movie-input-buttons {
+  width: 43%;
+  padding: 5px;
+  margin: 10px 0;
+
+}
+
+// li {
+//     float: left;
+// }
 
 
 .wrapper {

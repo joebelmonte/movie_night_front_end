@@ -28,6 +28,57 @@
 
     </div>
   </header>
+  <div class="container-fluid">
+    <div class="row title-line">
+        <div class="col-sm-2"><button type="button" class="btn btn-default">Change password</button></div>
+        <div class="col-sm-8">Movie Night</div>
+        <div class="col-sm-2"><button type="button" class="btn btn-default">Sign Out</button></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 left-pane-nav">
+        <form id="show-all-movies">
+          <fieldset>
+            <p>Display all of your movies</p>
+            <input type="submit" name="movie[name]" value="Your Movies" class="btn btn-default">
+          </fieldset>
+        </form>
+        <form id="search-by-title">
+          <fieldset>
+            <p>Search your movies</p>
+            <input type="text" name="movie[name]" placeholder="Enter title" class="title-search-box">
+            <input type="submit" name="submit" value="Search" class="btn btn-default">
+          </fieldset>
+        </form>
+        <form id="search-OMDB">
+          <fieldset>
+            <p>Search the Open Movie Database</p>
+            <input type="text" name="movie[name]" placeholder="Enter title" class="title-search-box">
+            <input type="submit" name="submit" value="Search" class="btn btn-default">
+          </fieldset>
+        </form>
+        <p>Input a new movie into your database</p>
+        <form id="new-movie">
+          <fieldset>
+            <input type="text" name="movie[name]" placeholder="Title (Required)">
+            <input type="text" name="movie[year_released]" placeholder="Year Released">
+            <input type="text" name="movie[director]" placeholder="Director">
+            <input type="text" name="movie[mpaa_rating]" placeholder="MPAA Rating">
+            <input type="text" name="movie[imdbRating]" placeholder="IMDB Rating">
+            <input type="text" name="movie[user_rating]" placeholder="Personal Rating">
+            <input type="text" name="movie[length]" placeholder="Length (min)">
+            <input type="text" name="movie[ownership_type]" placeholder="Method of ownership">
+            <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="movie[last_viewing]" placeholder="Last time viewed">
+            <input type="text" name="movie[times_watched]" placeholder="Times watched">
+            <input type="submit" name="submit" value="Create New Movie" class="btn btn-default movie-input-buttons">
+            <input type="submit" name="cancel" value="Clear Fields" class="btn btn-default movie-input-buttons">
+
+          </fieldset>
+        </form>
+      </div>
+      <div class="col-sm-9">Movie Display Area Title</div>
+      <div class="col-sm-9">Movie Display Area Output</div>
+    </div>
+  </div>
   <!-- Sign Up Modal -->
   <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -54,11 +105,11 @@
 
               <label class="col-sm-4 control-label" for="inputEmail3">Password</label>
               <div class="col-sm-8">
-              <input type="password" name="credentials[password]" placeholder="Password" class="form-control"><br></div>
+                <input type="password" name="credentials[password]" placeholder="Password" class="form-control"><br></div>
 
               <label class="col-sm-4 control-label" for="inputEmail3">Confirm Password</label>
               <div class="col-sm-8">
-              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="form-control"><br></div>
+                <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="form-control"><br></div>
               <div class="sign-up-error"></div>
               <input type="submit" name="submit" value="Sign up" class="btn btn-default sign-up-modal-button">
             </fieldset>
@@ -95,7 +146,7 @@
 
               <label class="col-sm-2 control-label" for="inputEmail3">Password</label>
               <div class="col-sm-10">
-              <input type="password" name="credentials[password]" placeholder="Password" class="form-control"><br></div>
+                <input type="password" name="credentials[password]" placeholder="Password" class="form-control"><br></div>
 
               <div class="sign-in-error"></div>
               <input type="submit" name="submit" value="Sign up" class="btn btn-default sign-up-modal-button">
