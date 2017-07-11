@@ -126,7 +126,7 @@ function dynamicSort (property) {
 const getAllMoviesSuccess = (data) => {
   const sortedMovies = data.movies.sort(dynamicSort('name'))
   const showMoviesHTML = showMoviesTemplate({ movies: sortedMovies })
-  $('.all-movies-table').html(showMoviesHTML)
+  $('.movie-display-area').html(showMoviesHTML)
   $('#update-movie').hide()
   $('#delete-movie').hide()
   $('.omdb-search-results').hide()

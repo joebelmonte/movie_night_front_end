@@ -21,6 +21,20 @@ h2 {
   font-weight: 200;
 }
 
+.movie-display-area h2 {
+  text-align: center;
+  font-size: 300%;
+  margin-bottom: 20px;
+  font-weight: 300;
+
+}
+
+.movie-display-area h3 {
+  text-align: center;
+  font-weight: 200;
+  margin-bottom: 30px;
+}
+
 header {
     background-image: url("../images/pexels-photo-27008.jpg");
     background-size: cover;
@@ -135,6 +149,11 @@ footer {
 .cancel-new-movie {
   margin-bottom: 10px;
 }
+
+.movie-display-area {
+  text-align: left;
+}
+
 
 // li {
 //     float: left;

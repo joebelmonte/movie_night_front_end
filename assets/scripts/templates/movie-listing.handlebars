@@ -1,16 +1,38 @@
-{{#each movies as |movie|}}
+<h2>Your Movies</h2>
+<h3 class="your-movies-subheading">Click on a movie to edit it</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year Released</th>
+      <th>Director</th>
+      <th>MPAA Rating</th>
+      <th>IMDB Rating</th>
+      <th>Personal Rating</th>
+      <th>Method of ownership</th>
+      <th>Last time viewed</th>
+      <th>Number of times watched</th>
+      <th>Length (min)</th>
+    </tr>
+  </thead>
+  <tbody class="all-movies-table">
 
-<tr data-id="{{movie.id}}">
-  <td data-id="{{movie.id}}">{{movie.name}}</td>
-  <td data-id="{{movie.id}}">{{movie.year_released}}</td>
-  <td data-id="{{movie.id}}">{{movie.director}}</td>
-  <td data-id="{{movie.id}}">{{movie.mpaa_rating}}</td>
-  <td data-id="{{movie.id}}">{{movie.imdbRating}}</td>
-  <td data-id="{{movie.id}}">{{movie.user_rating}}</td>
-  <td data-id="{{movie.id}}">{{movie.ownership_type}}</td>
-  <td data-id="{{movie.id}}">{{movie.last_viewing}}</td>
-  <td data-id="{{movie.id}}">{{movie.times_watched}}</td>
-  <td data-id="{{movie.id}}">{{movie.length}}</td>
-    <!-- <li><button class="remove-book" data-id="{{movie.id}}">Remove</button></li> -->
+    {{#each movies as |movie|}}
 
-{{/each}}
+    <tr data-id="{{movie.id}}">
+      <td data-id="{{movie.id}}">{{movie.name}}</td>
+      <td data-id="{{movie.id}}">{{movie.year_released}}</td>
+      <td data-id="{{movie.id}}">{{movie.director}}</td>
+      <td data-id="{{movie.id}}">{{movie.mpaa_rating}}</td>
+      <td data-id="{{movie.id}}">{{movie.imdbRating}}</td>
+      <td data-id="{{movie.id}}">{{movie.user_rating}}</td>
+      <td data-id="{{movie.id}}">{{movie.ownership_type}}</td>
+      <td data-id="{{movie.id}}">{{movie.last_viewing}}</td>
+      <td data-id="{{movie.id}}">{{movie.times_watched}}</td>
+      <td data-id="{{movie.id}}">{{movie.length}}</td>
+        <!-- <li><button class="remove-book" data-id="{{movie.id}}">Remove</button></li> -->
+
+    {{/each}}
+
+  </tbody>
+</table>
