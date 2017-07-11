@@ -210,6 +210,10 @@ const onBackToOMDbSearch = function (event) {
   $('.omdb-search-results-details').hide()
 }
 
+const clearNewMovieFields = function () {
+  $('#new-movie').trigger('reset')
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -228,6 +232,7 @@ const addHandlers = () => {
   $('.cancel-input-new-movie').on('click', hideOnAddNewMovie)
   $('.cancel-OMDb-Search').on('click', onCancelOMDbSearch)
   $('.back-to-OMDb-search').on('click', onBackToOMDbSearch)
+  $('.cancel-new-movie').on('click', clearNewMovieFields)
 }
 
 module.exports = {

@@ -30,9 +30,9 @@
   </header>
   <div class="container-fluid">
     <div class="row title-line">
-        <div class="col-sm-2"><button type="button" class="btn btn-default">Change password</button></div>
-        <div class="col-sm-8">Movie Night</div>
-        <div class="col-sm-2"><button type="button" class="btn btn-default">Sign Out</button></div>
+      <div class="col-sm-2"><button type="button" class="btn btn-default">Change password</button></div>
+      <div class="col-sm-8">Movie Night</div>
+      <div class="col-sm-2"><button type="button" class="btn btn-default">Sign Out</button></div>
     </div>
     <div class="row">
       <div class="col-sm-3 left-pane-nav">
@@ -68,12 +68,11 @@
             <input type="text" name="movie[length]" placeholder="Length (min)">
             <input type="text" name="movie[ownership_type]" placeholder="Method of ownership">
             <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="movie[last_viewing]" placeholder="Last time viewed">
-            <input type="text" name="movie[times_watched]" placeholder="Times watched">
+            <input type="text" name="movie[times_watched]" placeholder="Times watched"><br>
             <input type="submit" name="submit" value="Create New Movie" class="btn btn-default movie-input-buttons">
-            <input type="submit" name="cancel" value="Clear Fields" class="btn btn-default movie-input-buttons">
-
           </fieldset>
         </form>
+        <input type="submit" name="cancel" value="Clear Fields" class="btn btn-default movie-input-buttons cancel-new-movie">
       </div>
       <div class="col-sm-9">Movie Display Area Title</div>
       <div class="col-sm-9">Movie Display Area Output</div>
