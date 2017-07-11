@@ -101,6 +101,7 @@ const addNewMovieSuccess = (data) => {
 const onUpdateMovieSuccess = (data) => {
   $('#update-movieSuccess').modal('show')
   $('#update-movie').trigger('reset')
+  $('#search-by-title').trigger('reset')
 }
 
 const onUpdateMovieFailure = (data) => {
@@ -141,8 +142,8 @@ const getAllMoviesSuccess = (data) => {
 const getSearchedMoviesSuccess = (data) => {
   const sortedMovies = data.sort(dynamicSort('name'))
   const showMoviesHTML = showMoviesTemplate({ movies: sortedMovies })
-  $('.all-movies-table').html(showMoviesHTML)
-  $('#search-by-title').trigger('reset')
+  $('.movie-display-area').html(showMoviesHTML)
+  // $('#search-by-title').trigger('reset')
   $('#update-movie').hide()
   $('#delete-movie').hide()
   $('.omdb-search-results').hide()
@@ -154,7 +155,7 @@ const getSearchedMoviesSuccess = (data) => {
 
 const getSelectedMovieSuccess = (data) => {
   const showMovieHTML = showMovieTemplate({ movies: data })
-  $('.all-movies-table').html(showMovieHTML)
+  $('.movie-display-area').html(showMovieHTML)
   $('#update-movie').show()
   $('#delete-movie').show()
   $('.your-movies-subheading').text('Use the form below to update information about the movie or delete it from your database')
@@ -170,7 +171,7 @@ const searchOMDbSuccess = (data) => {
   } else {
     const sortedMovies = data.Search.sort(dynamicSort('Title'))
     const showMovieHTML = showOMDbSearchTemplate({ movies: sortedMovies })
-    $('.search-OMDB-movies-table').html(showMovieHTML)
+    $('.movie-display-area').html(showMovieHTML)
     $('.omdb-search-results').show()
     $('.omdb-search-results-details').hide()
     $('.your-movies').hide()
@@ -182,10 +183,11 @@ const searchOMDbSuccess = (data) => {
 }
 
 const showOMDbMovieSuccess = (movie) => {
+  console.log('in showOMDbMovieSuccess')
   const singleMovieArray = []
   singleMovieArray.push(movie)
   const showMovieHTML = showOMDbSingleMovie({ movies: singleMovieArray })
-  $('.OMDB-movie-detail-table').html(showMovieHTML)
+  $('.movie-display-area').html(showMovieHTML)
   $('.omdb-search-results-details').show()
   $('.omdb-search-results').hide()
 }
@@ -194,6 +196,7 @@ const deleteMovieSuccess = (data) => {
   $('#delete-movie-success').modal('show')
   $('#update-movie').hide()
   $('#delete-movie').hide()
+  $('#search-by-title').trigger('reset')
 }
 
 const deleteMovieFailure = (error) => {

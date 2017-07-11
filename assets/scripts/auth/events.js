@@ -55,6 +55,9 @@ const getAllMovies = function (event) {
   event.preventDefault()
   api.getUsersMovies()
     .then(ui.getAllMoviesSuccess)
+    .then(() => {
+      $('.all-movies-table').on('click', showOneMovie)
+    })
     .catch(ui.getAllMoviesFailure)
 }
 
@@ -71,6 +74,7 @@ const onAddNewMovie = function (event) {
 }
 
 const showOneMovie = (event) => {
+  console.log('in showOneMovie')
   movieID = $(event.target).attr('data-id')
   api.getSelectedMovie(movieID)
     .then(ui.getSelectedMovieSuccess)
@@ -126,6 +130,9 @@ const onSearchByTitle = function (event) {
       filterMoviesResults = filterMovies(searchCriteria)
       ui.getSearchedMoviesSuccess(filterMoviesResults)
     })
+    .then(() => {
+      $('.all-movies-table').on('click', showOneMovie)
+    })
 }
 
 const onSearchOMDb = function (event) {
@@ -135,13 +142,20 @@ const onSearchOMDb = function (event) {
   const searchCriteriaForAPI = searchCriteria.split(' ').join('+')
   api.searchOMDb(searchCriteriaForAPI)
     .then(ui.searchOMDbSuccess)
+    .then(() => {
+      $('.search-OMDB-movies-table').on('click', onShowOMDbMovie)
+    })
 }
 
 const onShowOMDbMovie = function (event) {
   event.preventDefault()
+  console.log('in onShowOMDbMovie')
   const movieID = $(event.target).attr('data-id')
   api.showOMDbMovie(movieID)
     .then(ui.showOMDbMovieSuccess)
+    .then(() => {
+      $('.OMDB-movie-detail-table').on('click', onAddOMDbMovie)
+    })
 }
 
 const AddOMDbMovieSuccess = (data) => {
@@ -221,12 +235,10 @@ const addHandlers = () => {
   $('#signOut').on('submit', signOut)
   $('#new-movie').on('submit', onAddNewMovie)
   $('#show-all-movies').on('submit', getAllMovies)
-  $('.all-movies-table').on('click', showOneMovie)
   $('#update-movie').on('submit', onUpdateMovie)
   $('#delete-movie').on('submit', onDeleteMovie)
   $('#search-by-title').on('submit', onSearchByTitle)
   $('#search-OMDB').on('submit', onSearchOMDb)
-  $('.search-OMDB-movies-table').on('click', onShowOMDbMovie)
   $('.OMDB-movie-detail-table').on('click', onAddOMDbMovie)
   $('.input-new-movie').on('click', showOnAddNewMovie)
   $('.cancel-input-new-movie').on('click', hideOnAddNewMovie)

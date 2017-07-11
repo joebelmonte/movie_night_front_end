@@ -1,9 +1,23 @@
-{{#each movies as |movie|}}
+<h2>OMDb Search Results</h2>
+<h3 class="your-movies-subheading">Click on a movie to see more information</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year Released</th>
+      <th>Poster</th>
+    </tr>
+  </thead>
+  <tbody class="search-OMDB-movies-table">
 
-<tr data-id="{{movie.imdbID}}">
-  <td data-id="{{movie.imdbID}}">{{movie.Title}}</td>
-  <td data-id="{{movie.imdbID}}">{{movie.Year}}</td>
-  <td data-id="{{movie.imdbID}}"><img src={{movie.Poster}} onerror="this.style.display='none'"></td>
-    <!-- <li><button class="remove-book" data-id="{{movie.id}}">Remove</button></li> -->
+    {{#each movies as |movie|}}
 
-{{/each}}
+    <tr data-id="{{movie.imdbID}}">
+      <td data-id="{{movie.imdbID}}">{{movie.Title}}</td>
+      <td data-id="{{movie.imdbID}}">{{movie.Year}}</td>
+      <td data-id="{{movie.imdbID}}"><img src={{movie.Poster}} onerror="this.style.display='none'"></td>
+
+    {{/each}}
+
+  </tbody>
+</table>

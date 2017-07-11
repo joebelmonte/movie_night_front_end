@@ -1,13 +1,31 @@
-{{#each movies as |movie|}}
+<h2>Search Details on Selected Movie</h2>
+<h3>Click on the movie below to add it to your database</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date Released</th>
+      <th>MPAA Rating</th>
+      <th>Length (min)</th>
+      <th>Director</th>
+      <th>Plot</th>
+      <th>IMDB Rating</th>
+      <th>Box Office</th>
+    </tr>
+  </thead>
+  <tbody class="OMDB-movie-detail-table">
+    {{#each movies as |movie|}}
 
-<tr data-id="{{movie.imdbID}}">
-  <td data-id="{{movie.imdbID}}">{{movie.Title}}</td>
-  <td data-id="{{movie.imdbID}}">{{movie.Released}}</td>
-  <td data-id="{{movie.imdbID}}">{{movie.Rated}}</td>
-  <td data-id="{{movie.imdbID}}">{{movie.Runtime}}</td>
-  <td data-id="{{movie.imdbID}}">{{movie.Director}}</td>
-  <td data-id="{{movie.imdbID}}">{{movie.Plot}}</td>
-  <td data-id="{{movie.imdbID}}">{{movie.imdbRating}}</td>
-  <td data-id="{{movie.imdbID}}">{{movie.BoxOffice}}</td>
+      <tr data-id="{{movie.imdbID}}">
+        <td data-id="{{movie.imdbID}}">{{movie.Title}}</td>
+        <td data-id="{{movie.imdbID}}">{{movie.Released}}</td>
+        <td data-id="{{movie.imdbID}}">{{movie.Rated}}</td>
+        <td data-id="{{movie.imdbID}}">{{movie.Runtime}}</td>
+        <td data-id="{{movie.imdbID}}">{{movie.Director}}</td>
+        <td data-id="{{movie.imdbID}}">{{movie.Plot}}</td>
+        <td data-id="{{movie.imdbID}}">{{movie.imdbRating}}</td>
+        <td data-id="{{movie.imdbID}}">{{movie.BoxOffice}}</td>
 
-{{/each}}
+    {{/each}}
+  </tbody>
+</table>
