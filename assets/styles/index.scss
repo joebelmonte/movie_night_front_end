@@ -3,10 +3,10 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 
 body {
-  background-image: url("../images/pexels-photo-27008.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
+  // // background-image: url("../images/pexels-photo-27008.jpg");
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // position: relative;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -18,22 +18,28 @@ h1 {
 
 h2 {
   font-size: 200%;
-  font-weight: 400;
+  font-weight: 200;
 }
 
+header {
+    background-image: url("../images/pexels-photo-27008.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 96vh;
+    background-attachment: fixed;
+}
 
 .welcome-screen {
   background-color: rgba(0, 0, 0, 0.8);
-  margin: auto;
+  position: absolute;
+  transform: translate(50%, 0%);
   margin-top: 100px;
   width: 50%;
   height: 450px;
-  // opacity: 50%;
   text-align: center;
   padding: 20px;
   border-radius: 5%;
-  color: white;
-  // border-color: red;
+  color: #CCCCBB;
   // border: 1px solid #e67e22;
 }
 
@@ -55,7 +61,29 @@ h2 {
   font-size: 150%
 }
 
+footer {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 9px;
+  background-color: #995544;
+  color: #CCCCBB;
+}
 
+
+.sign-up-error {
+  margin: 25px;
+  color: #CC1100;
+  text-align: center;
+  font-size: 150%;
+}
+
+.sign-up-modal-button {
+  display: block;
+  margin: auto;
+  width: 200px;
+  font-size: 150%;
+  margin-bottom: 25px;
+}
 
 li {
     float: left;
@@ -68,14 +96,6 @@ li {
   background-color: gray;
 }
 
-.footer-text {
-  // position: absolute;
-  // bottom: 0;
-  // padding: 1rem;
-  // background-color: #efefef;
-  // text-align: center;
-  // display: block;
-}
 
 #change-password{
   display: none;

@@ -15,58 +15,66 @@
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 
-<body class="container-fluid">
-  <div class="welcome-screen">
-    <h1>Movie Night</h1>
+<body>
+  <header>
+    <div class="welcome-screen">
+      <h1>Movie Night</h1>
 
-    <h2>Your own personal Movie Database.</h2>
-    <h2>Please create an account or sign in.</h2>
-    <button type="button" class="btn btn-default sign-up hvr-bounce-in" data-toggle="modal" data-target="#sign-up-modal">Sign-Up</button><button type="button" class="btn btn-default sign-in">Sign-In</button>
-    <button type="button" class="btn btn-default about">About</button>
+      <h2>Your own personal Movie Database.</h2>
+      <h2>Please create an account or sign in.</h2>
+      <button type="button" class="btn btn-default sign-up hvr-bounce-in" data-toggle="modal" data-target="#sign-up-modal">Sign-Up</button><button type="button" class="btn btn-default sign-in">Sign-In</button>
+      <button type="button" class="btn btn-default about">About</button>
 
-  </div>
-
+    </div>
+  </header>
   <!-- Sign Up Modal -->
-  <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog"
-  aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-  <div class="modal-content">
-      <!-- Modal Header -->
-      <div class="modal-header">
-          <button type="button" class="close"
-             data-dismiss="modal">
+  <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
                  <span aria-hidden="true">&times;</span>
                  <span class="sr-only">Close</span>
           </button>
           <h4 class="modal-title" id="myModalLabel">
               Create an account
           </h4>
-      </div>
+        </div>
 
-      <!-- Modal Body -->
-      <div class="modal-body">
-        <form id="sign-up">
-          <fieldset>
-            <!-- <legend>Sign up!</legend> -->
-            <input type="text" name="credentials[email]" placeholder="Email"><br>
-            <input type="password" name="credentials[password]" placeholder="Password"><br>
-            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"><br>
-            <input type="submit" name="submit" value="Sign up">
-          </fieldset>
-        </form>
-      </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form id="sign-up" class="form-horizontal" role="form">
+            <fieldset>
+              <!-- <legend>Sign up!</legend> -->
+              <label class="col-sm-4 control-label" for="inputEmail3">Email</label>
+              <div class="col-sm-8">
+                <input type="text" name="credentials[email]" placeholder="Email" class="form-control"><br></div>
 
-      <!-- Modal Footer -->
-      <!-- <div class="modal-footer">
+              <label class="col-sm-4 control-label" for="inputEmail3">Password</label>
+              <div class="col-sm-8">
+              <input type="password" name="credentials[password]" placeholder="Password" class="form-control"><br></div>
+
+              <label class="col-sm-4 control-label" for="inputEmail3">Confirm Password</label>
+              <div class="col-sm-8">
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="form-control"><br></div>
+              <div class="sign-up-error"></div>
+              <input type="submit" name="submit" value="Sign up" class="btn btn-default sign-up-modal-button">
+            </fieldset>
+          </form>
+        </div>
+
+        <!-- Modal Footer -->
+        <!-- <div class="modal-footer">
           <button type="button" class="btn btn-primary" id="sign-up">
               Create Account
           </button>
       </div> -->
-  </div>
-  </div>
+      </div>
+    </div>
   </div>
   <!-- End of Sign Up Modal -->
-
+  <footer>Copyright 2017 by Joe Belmonte</footer>
 </body>
 
 </html>

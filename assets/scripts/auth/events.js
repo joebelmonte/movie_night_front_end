@@ -8,14 +8,23 @@ let movieID = 0
 const onSignUp = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  api.signUp(data)
-    .then(ui.signUpSuccess)
-    .then(() => {
-      api.signInAuto(data)
-        .then(ui.autoSignInSuccess)
-        .catch(ui.autoSignInFailure)
-    })
-    .catch(ui.signUpFailure)
+  console.log('and the data is ', data)
+  if (data.credentials.password === data.credentials.password_confirmation) {
+    console.log('passwords are the same')
+    $('.sign-up-error').text('')
+    api.signUp(data)
+      .then(ui.signUpSuccess)
+      .then(() => {
+        api.signInAuto(data)
+          .then(ui.autoSignInSuccess)
+          .catch(ui.autoSignInFailure)
+      })
+      .catch(ui.signUpFailure)
+  }
+  if (data.credentials.password !== data.credentials.password_confirmation) {
+    console.log('passwords are different')
+    $('.sign-up-error').text('Your passwords do not match.  Please try again.')
+  }
 }
 
 const onSignIn = function (event) {
