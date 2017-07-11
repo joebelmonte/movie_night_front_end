@@ -5,7 +5,7 @@ const showOMDbSearchTemplate = require('../templates/movie-listing-OMDB-search.h
 const showOMDbSingleMovie = require('../templates/single-movie-listing-OMDb.handlebars')
 
 const signUpSuccess = (data) => {
-  $('#AccountCreationSuccess').modal('show')
+  // $('#AccountCreationSuccess').modal('show')
   console.log('sign up success')
 }
 
@@ -16,39 +16,45 @@ const signUpFailure = (error) => {
 
 const signInSuccess = (data) => {
   store.user = data.user
-  $('#signOut').show()
-  $('#sign-up').hide()
-  $('#sign-in').hide()
-  $('#change-password').show()
-  $('#LogInSuccess').modal('show')
-  $('.status-message').text('Use the buttons to the left to view your database, or search IMDB via the Open Movie Database.')
-  $('.movie-controls').show()
+  console.log('sign in success')
+  $('#sign-in-modal').modal('hide')
+  $('.sign-in-error').text('')
+  $('#sign-in').trigger('reset')
+  // $('#signOut').show()
+  // $('#sign-up').hide()
+  // $('#sign-in').hide()
+  // $('#change-password').show()
+  // $('#LogInSuccess').modal('show')
+  // $('.status-message').text('Use the buttons to the left to view your database, or search IMDB via the Open Movie Database.')
+  // $('.movie-controls').show()
 }
 
 const signInFailure = (error) => {
   console.error(error)
-  $('#LogFailure').modal('show')
+  $('.sign-in-error').text('There was an error signing in.  Please try again.')
 }
 
 const autoSignInSuccess = (data) => {
   store.user = data.user
-  $('#signOut').show()
-  $('#sign-up').hide()
-  $('#sign-in').hide()
-  $('#change-password').show()
-  $('.status-message').text('Use the buttons to the left to view your database, or search IMDB via the Open Movie Database.')
-  $('.movie-controls').show()
+  console.log('auto sign in success')
+  $('#sign-up-modal').modal('hide')
+  $('.sign-up-error').text('')
+  $('#sign-up').trigger('reset')
+  // $('#signOut').show()
+  // $('#sign-up').hide()
+  // $('#sign-in').hide()
+  // $('#change-password').show()
+  // $('.status-message').text('Use the buttons to the left to view your database, or search IMDB via the Open Movie Database.')
+  // $('.movie-controls').show()
 }
 
 const autoSignInFailure = (error) => {
   console.error(error)
-  $('#LogFailure').modal('show')
+  // $('#LogFailure').modal('show')
 }
 
 const changePasswordSuccess = (data) => {
   $('#passWordChangeSuccess').modal('show')
-  // document.getElementById("change-password").reset()
-  // $('#change-password').reset()
   $('#change-password').trigger('reset')
 }
 

@@ -35,7 +35,7 @@ header {
   transform: translate(50%, 0%);
   margin-top: 100px;
   width: 50%;
-  height: 450px;
+  height: 500px;
   text-align: center;
   padding: 20px;
   border-radius: 5%;
@@ -70,7 +70,7 @@ footer {
 }
 
 
-.sign-up-error {
+.sign-up-error, .sign-in-error {
   margin: 25px;
   color: #CC1100;
   text-align: center;
