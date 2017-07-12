@@ -146,6 +146,12 @@ footer {
   margin: 10px 0 0 0;
 }
 
+.movie-update-delete-buttons {
+  width: 20%;
+  padding: 5px;
+  margin: 10px 0 0 0;
+}
+
 .cancel-new-movie {
   margin-bottom: 10px;
 }
@@ -162,52 +168,52 @@ footer {
 //     float: left;
 // }
 
-
-.wrapper {
-  min-height: 100%;
-	position: relative;
-  background-color: gray;
-}
-
-
-#change-password{
-  display: none;
-}
-
-#signOut{
-  display: none;
-}
-
-
-.new-movie-entry-instructions{
-  display: none;
-}
-
-.your-movies{
-  display: none;
-}
-
-.omdb-search-results{
-  display: none;
-}
-
-.omdb-search-results-details{
-  display: none;
-}
-
-#update-movie{
-  display: none;
-}
-
-#delete-movie{
-  display: none;
-}
-
-.movie-controls{
-  display: none;
-}
-
-// Modals
-.modal-header {
-  // background-color: red;
-}
+//
+// .wrapper {
+//   min-height: 100%;
+// 	position: relative;
+//   background-color: gray;
+// }
+//
+//
+// #change-password{
+//   display: none;
+// }
+//
+// #signOut{
+//   display: none;
+// }
+//
+//
+// .new-movie-entry-instructions{
+//   display: none;
+// }
+//
+// .your-movies{
+//   display: none;
+// }
+//
+// .omdb-search-results{
+//   display: none;
+// }
+//
+// .omdb-search-results-details{
+//   display: none;
+// }
+//
+// #update-movie{
+//   display: none;
+// }
+//
+// #delete-movie{
+//   display: none;
+// }
+//
+// .movie-controls{
+//   display: none;
+// }
+//
+// // Modals
+// .modal-header {
+//   // background-color: red;
+// }

@@ -156,12 +156,12 @@ const getSearchedMoviesSuccess = (data) => {
 const getSelectedMovieSuccess = (data) => {
   const showMovieHTML = showMovieTemplate({ movies: data })
   $('.movie-display-area').html(showMovieHTML)
-  $('#update-movie').show()
-  $('#delete-movie').show()
-  $('.your-movies-subheading').text('Use the form below to update information about the movie or delete it from your database')
-  $('.omdb-search-results').hide()
-  $('.omdb-search-results-details').hide()
-  $('.new-movie-entry-instructions').hide()
+  // $('#update-movie').show()
+  // $('#delete-movie').show()
+  // $('.your-movies-subheading').text('Use the form below to update information about the movie or delete it from your database')
+  // $('.omdb-search-results').hide()
+  // $('.omdb-search-results-details').hide()
+  // $('.new-movie-entry-instructions').hide()
 }
 
 const searchOMDbSuccess = (data) => {

@@ -51,11 +51,11 @@
     <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')"  name="movie[last_viewing]" placeholder="Last time viewed">
     <input type="text" name="movie[times_watched]" placeholder="Times watched">
     <input type="text" name="movie[length]" placeholder="Length (min)"><br>
-    <input type="submit" name="submit" value="Update Movie Information">
+    <input type="submit" name="submit" value="Update Movie Information" class="btn btn-default movie-update-delete-buttons">
   </fieldset>
 </form>
 <form id="delete-movie" data-id="{{movie.id}}">
   <fieldset>
-    <input type="submit" name="submit" value="Delete this movie">
+    <input type="submit" name="submit" value="Delete this movie" class="btn btn-default movie-update-delete-buttons">
   </fieldset>
 </form>

@@ -80,12 +80,19 @@ const showOneMovie = (event) => {
     .then(ui.getSelectedMovieSuccess)
     .then(() => {
       $('.all-movies-table').on('click', showOneMovie)
+      $('#delete-movie').on('submit', onDeleteMovie)
+      $('#update-movie').on('submit', onUpdateMovie)
     })
 }
 
 const showUpdatedMovie = (movieID) => {
   api.getSelectedMovie(movieID)
     .then(ui.getSelectedMovieSuccess)
+    .then(() => {
+      $('.all-movies-table').on('click', showOneMovie)
+      $('#delete-movie').on('submit', onDeleteMovie)
+      $('#update-movie').on('submit', onUpdateMovie)
+    })
 }
 
 const onUpdateMovie = function (event) {
@@ -100,12 +107,16 @@ const onUpdateMovie = function (event) {
 }
 
 const onDeleteMovie = function (event) {
+  console.log('in onDeleteMovie')
   event.preventDefault()
   api.deleteMovie(movieID)
       .then(ui.deleteMovieSuccess)
       .then(() => {
         api.getUsersMovies()
           .then(ui.getAllMoviesSuccess)
+          .then(() => {
+            $('.all-movies-table').on('click', showOneMovie)
+          })
       })
       .catch(ui.deleteMovieFailure)
 }
@@ -242,8 +253,7 @@ const addHandlers = () => {
   $('#signOut').on('submit', signOut)
   $('#new-movie').on('submit', onAddNewMovie)
   $('#show-all-movies').on('submit', getAllMovies)
-  $('#update-movie').on('submit', onUpdateMovie)
-  $('#delete-movie').on('submit', onDeleteMovie)
+
   $('#search-by-title').on('submit', onSearchByTitle)
   $('#search-OMDB').on('submit', onSearchOMDb)
   $('.OMDB-movie-detail-table').on('click', onAddOMDbMovie)
