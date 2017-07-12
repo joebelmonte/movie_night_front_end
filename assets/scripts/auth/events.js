@@ -78,6 +78,9 @@ const showOneMovie = (event) => {
   movieID = $(event.target).attr('data-id')
   api.getSelectedMovie(movieID)
     .then(ui.getSelectedMovieSuccess)
+    .then(() => {
+      $('.all-movies-table').on('click', showOneMovie)
+    })
 }
 
 const showUpdatedMovie = (movieID) => {
@@ -178,6 +181,10 @@ const AddOMDbMovieSuccess = (data) => {
     .then(() => {
       api.getUsersMovies()
         .then(ui.getAllMoviesSuccess)
+        .then(() => {
+          $('.all-movies-table').on('click', showOneMovie)
+          console.log('trying to add event listener in AddOMDbMovieSuccess')
+        })
     })
     .catch(ui.addNewMovieFromOMDbFailure)
 }
@@ -185,7 +192,7 @@ const AddOMDbMovieSuccess = (data) => {
 const onAddOMDbMovie = function (event) {
   event.preventDefault()
   const movieID = $(event.target).attr('data-id')
-  const movieToAdd = api.showOMDbMovie(movieID)
+  // const movieToAdd = api.showOMDbMovie(movieID)
   api.showOMDbMovie(movieID)
     .then(AddOMDbMovieSuccess)
 }
