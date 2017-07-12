@@ -8,9 +8,7 @@ let movieID = 0
 const onSignUp = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log('and the data is ', data)
   if (data.credentials.password === data.credentials.password_confirmation) {
-    console.log('passwords are the same')
     $('.sign-up-error').text('')
     api.signUp(data)
       .then(ui.signUpSuccess)
@@ -22,7 +20,6 @@ const onSignUp = function (event) {
       .catch(ui.signUpFailure)
   }
   if (data.credentials.password !== data.credentials.password_confirmation) {
-    console.log('passwords are different')
     $('.sign-up-error').text('Your passwords do not match.  Please try again.')
   }
 }
@@ -77,7 +74,6 @@ const onAddNewMovie = function (event) {
 }
 
 const showOneMovie = (event) => {
-  console.log('in showOneMovie')
   movieID = $(event.target).attr('data-id')
   api.getSelectedMovie(movieID)
     .then(ui.getSelectedMovieSuccess)
@@ -110,7 +106,6 @@ const onUpdateMovie = function (event) {
 }
 
 const onDeleteMovie = function (event) {
-  console.log('in onDeleteMovie')
   event.preventDefault()
   api.deleteMovie(movieID)
       .then(ui.deleteMovieSuccess)
@@ -166,7 +161,6 @@ const onSearchOMDb = function (event) {
 
 const onShowOMDbMovie = function (event) {
   event.preventDefault()
-  console.log('in onShowOMDbMovie')
   const movieID = $(event.target).attr('data-id')
   api.showOMDbMovie(movieID)
     .then(ui.showOMDbMovieSuccess)
@@ -197,7 +191,6 @@ const AddOMDbMovieSuccess = (data) => {
         .then(ui.getAllMoviesSuccess)
         .then(() => {
           $('.all-movies-table').on('click', showOneMovie)
-          console.log('trying to add event listener in AddOMDbMovieSuccess')
         })
     })
     .catch(ui.addNewMovieFromOMDbFailure)

@@ -2,7 +2,6 @@ const config = require('../config.js')
 const store = require('../store.js')
 
 const signUp = (data) => {
-  console.log('trying to sign uo and data is ', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-up',
     method: 'POST',

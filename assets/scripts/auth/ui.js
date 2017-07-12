@@ -6,7 +6,6 @@ const showOMDbSingleMovie = require('../templates/single-movie-listing-OMDb.hand
 
 const signUpSuccess = (data) => {
   // $('#AccountCreationSuccess').modal('show')
-  console.log('sign up success')
 }
 
 const signUpFailure = (error) => {
@@ -16,7 +15,6 @@ const signUpFailure = (error) => {
 
 const signInSuccess = (data) => {
   store.user = data.user
-  console.log('sign in success')
   $('.website-body').show()
   $('header').hide()
   $('#sign-in-modal').modal('hide')
@@ -37,7 +35,6 @@ const signInFailure = (error) => {
 
 const autoSignInSuccess = (data) => {
   store.user = data.user
-  console.log('auto sign in success')
   $('.website-body').show()
   $('header').hide()
   $('#sign-up-modal').modal('hide')
@@ -69,7 +66,6 @@ const changePasswordFailure = (data) => {
 
 const signOutSuccess = (data) => {
   store.user = null
-  // console.log('sign out success')
   $('header').show()
   $('.website-body').hide()
   $('.movie-display-area').html('<div class="welcome-instructions"><h3>Welcome to Movie Night, you own personal movie database. By clicking the buttons on the left, you can search your database or add movies to your database.</h3>')
@@ -191,7 +187,6 @@ const searchOMDbSuccess = (data) => {
 }
 
 const showOMDbMovieSuccess = (movie) => {
-  console.log('in showOMDbMovieSuccess')
   const singleMovieArray = []
   singleMovieArray.push(movie)
   const showMovieHTML = showOMDbSingleMovie({ movies: singleMovieArray })
