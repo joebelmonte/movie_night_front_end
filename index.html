@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Movie Night</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,200i,300,300i,400,500,600" rel="stylesheet">
+  <link href="assets/styles/hover.css" rel="stylesheet" media="all">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="welcome-screen">
+      <h1>Movie Night</h1>
+
+      <h2>Your own personal Movie Database.</h2>
+      <h2>Please create an account or sign in.</h2>
+      <button type="button" class="btn btn-default sign-up hvr-bounce-in" data-toggle="modal" data-target="#sign-up-modal">Sign-Up</button>
+      <button type="button" class="btn btn-default sign-in hvr-bounce-in" data-toggle="modal" data-target="#sign-in-modal">Sign-In</button>
+
+    </div>
+  </header>
+  <div class="website-body">
+  <div class="picture-peek"></div>
+  <div class="container-fluid">
+    <div class="row title-line">
+      <div class="col-sm-2"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#change-password-modal">Change password</button></div>
+      <div class="col-sm-8">Movie Night</div>
+      <div class="col-sm-2"><button type="button" class="btn btn-default sign-out">Sign Out</button></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 left-pane-nav">
+        <form id="show-all-movies">
+          <fieldset>
+            <p>Display all of your movies</p>
+            <input type="submit" name="movie[name]" value="Your Movies" class="btn btn-default">
+          </fieldset>
+        </form>
+        <form id="search-by-title">
+          <fieldset>
+            <p>Search your movies</p>
+            <input type="text" name="movie[name]" placeholder="Enter title" class="title-search-box">
+            <input type="submit" name="submit" value="Search" class="btn btn-default">
+          </fieldset>
+        </form>
+        <form id="search-OMDB">
+          <fieldset>
+            <p>Search the Open Movie Database</p>
+            <input type="text" name="movie[name]" placeholder="Enter title" class="title-search-box">
+            <input type="submit" name="submit" value="Search" class="btn btn-default">
+          </fieldset>
+        </form>
+        <p>Input a new movie into your database</p>
+        <form id="new-movie">
+          <fieldset>
+            <input type="text" name="movie[name]" placeholder="Title (Required)">
+            <input type="text" name="movie[year_released]" placeholder="Year Released">
+            <input type="text" name="movie[director]" placeholder="Director">
+            <input type="text" name="movie[mpaa_rating]" placeholder="MPAA Rating">
+            <input type="text" name="movie[imdbRating]" placeholder="IMDB Rating">
+            <input type="text" name="movie[user_rating]" placeholder="Personal Rating">
+            <input type="text" name="movie[length]" placeholder="Length (min)">
+            <input type="text" name="movie[ownership_type]" placeholder="Method of ownership">
+            <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="movie[last_viewing]" placeholder="Last time viewed">
+            <input type="text" name="movie[times_watched]" placeholder="Times watched"><br>
+            <input type="submit" name="submit" value="Create New Movie" class="btn btn-default movie-input-buttons">
+          </fieldset>
+        </form>
+        <input type="submit" name="cancel" value="Clear Fields" class="btn btn-default movie-input-buttons cancel-new-movie">
+      </div>
+      <div class="col-sm-9 movie-display-area">
+        <div class="welcome-instructions"><h3>Welcome to Movie Night, you own personal movie database. By clicking the buttons on the left, you can search your database or add movies to your database.</h3>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+  <!-- Sign Up Modal -->
+  <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+                 <span aria-hidden="true">&times;</span>
+                 <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+              Create an account
+          </h4>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form id="sign-up" class="form-horizontal" role="form">
+            <fieldset>
+              <!-- <legend>Sign up!</legend> -->
+              <label class="col-sm-4 control-label" for="inputEmail3">Email</label>
+              <div class="col-sm-8">
+                <input type="text" name="credentials[email]" placeholder="Email" class="form-control"><br></div>
+
+              <label class="col-sm-4 control-label" for="inputEmail3">Password</label>
+              <div class="col-sm-8">
+                <input type="password" name="credentials[password]" placeholder="Password" class="form-control"><br></div>
+
+              <label class="col-sm-4 control-label" for="inputEmail3">Confirm Password</label>
+              <div class="col-sm-8">
+                <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="form-control"><br></div>
+              <div class="sign-up-error"></div>
+              <input type="submit" name="submit" value="Sign up" class="btn btn-default sign-up-modal-button">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Sign Up Modal -->
+
+  <!-- Sign In Modal -->
+  <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+                 <span aria-hidden="true">&times;</span>
+                 <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+              Sign in
+          </h4>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form id="sign-in" class="form-horizontal" role="form">
+            <fieldset>
+              <!-- <legend>Sign In!</legend> -->
+              <label class="col-sm-2 control-label" for="inputEmail3">Email</label>
+              <div class="col-sm-10">
+                <input type="text" name="credentials[email]" placeholder="Email" class="form-control"><br></div>
+
+              <label class="col-sm-2 control-label" for="inputEmail3">Password</label>
+              <div class="col-sm-10">
+                <input type="password" name="credentials[password]" placeholder="Password" class="form-control"><br></div>
+
+              <div class="sign-in-error"></div>
+              <input type="submit" name="submit" value="Sign up" class="btn btn-default sign-up-modal-button">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Sign In Modal -->
+
+  <!-- Change Password Modal -->
+  <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+                 <span aria-hidden="true">&times;</span>
+                 <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+              Change password
+          </h4>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form id="change-password" class="form-horizontal" role="form">
+            <fieldset>
+              <!-- <legend>Sign In!</legend> -->
+              <label class="col-sm-4 control-label" for="inputEmail3">Current password</label>
+              <div class="col-sm-8">
+                <input type="password" name="passwords[old]" placeholder="Current password" class="form-control"><br></div>
+
+              <label class="col-sm-4 control-label" for="inputEmail3">Password</label>
+              <div class="col-sm-8">
+                <input type="password" name="passwords[new]" placeholder="New Password" class="form-control"><br></div>
+
+              <div class="change-password-error"></div>
+              <input type="submit" name="submit" value="Change Password" class="btn btn-default sign-up-modal-button">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Change Password Modal -->
+
+  <!-- Sign Out Success Modal Start -->
+      <div id="signOutSuccess" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Alert</h4>
+            </div>
+            <div class="modal-body">
+              <p>You have been signed out.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  <!-- Modal End -->
+
+  <!-- Create Movie Success Modal Start -->
+      <div id="createMovieSuccess" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Alert</h4>
+            </div>
+            <div class="modal-body">
+              <p>Your movie has been successfully created.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  <!-- Modal End -->
+
+  <!-- Modal Start -->
+      <div id="createMoviefailure" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Alert</h4>
+            </div>
+            <div class="modal-body">
+              <p>Your movie was not successfully created - please try again.</p>
+              <p>Note that your movie must contain a title.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  <!-- Modal End -->
+
+  <!-- Update Movie Success Modal Start -->
+      <div id="update-movieSuccess" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Alert</h4>
+            </div>
+            <div class="modal-body">
+              <p>Your movie was successfully updated.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  <!-- Modal End -->
+
+  <!-- Update Movie Failure Modal Start -->
+      <div id="update-movieFailure" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Alert</h4>
+            </div>
+            <div class="modal-body">
+              <p>Your movie was NOT successfully updated. Please try again.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  <!-- Modal End -->
+
+  <!-- Delete Movie Success Modal Start -->
+      <div id="delete-movie-success" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Alert</h4>
+            </div>
+            <div class="modal-body">
+              <p>Your movie has been deleted.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  <!-- Modal End -->
+
+  <!-- Delete Movie Failure Modal Start -->
+      <div id="delete-movie-failure" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Alert</h4>
+            </div>
+            <div class="modal-body">
+              <p>There was a problem deleting your movie.  Please try again.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  <!-- Modal End -->
+
+  <!-- Add OMDB Movie Success Modal Start -->
+      <div id="add-OMDB-success" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Alert</h4>
+            </div>
+            <div class="modal-body">
+              <p>This movie was successfully added to your database.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  <!-- Modal End -->
+
+  <!-- Add OMDB Movie Failure Modal Start -->
+      <div id="add-OMDb-movie-failure" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Alert</h4>
+            </div>
+            <div class="modal-body">
+              <p>There was a problem adding the movie.  Please try again.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  <!-- Modal End -->
+
+  <!-- Get All Movies Failure Modal Start -->
+      <div id="get-All-Movies-Failure" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Alert</h4>
+            </div>
+            <div class="modal-body">
+              <p>There was a problem retrieving your movies.  Please try again.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  <!-- Modal End -->
+
+  <!-- OMDB No Search Results Modal Start -->
+      <div id="omdb-search-no-results" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Alert</h4>
+            </div>
+            <div class="modal-body">
+              <p>Sorry, your search did not return any results.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  <!-- Modal End -->
+
+  <footer>Copyright 2017 by Joe Belmonte</footer>
+</body>
+
+</html>
