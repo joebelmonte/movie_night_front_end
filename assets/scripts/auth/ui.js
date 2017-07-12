@@ -66,6 +66,7 @@ const changePasswordFailure = (data) => {
 
 const signOutSuccess = (data) => {
   store.user = null
+  console.log('sign out success')
   $('#sign-up').show()
   $('#sign-in').show()
   $('#signOut').hide()

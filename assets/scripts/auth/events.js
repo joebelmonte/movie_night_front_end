@@ -250,7 +250,7 @@ const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('#signOut').on('submit', signOut)
+  $('.sign-out').on('click', signOut)
   $('#new-movie').on('submit', onAddNewMovie)
   $('#show-all-movies').on('submit', getAllMovies)
   $('#search-by-title').on('submit', onSearchByTitle)
