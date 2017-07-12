@@ -69,6 +69,9 @@ const onAddNewMovie = function (event) {
     .then(() => {
       api.getUsersMovies()
         .then(ui.getAllMoviesSuccess)
+        .then(() => {
+          $('.all-movies-table').on('click', showOneMovie)
+        })
     })
     .catch(ui.addNewMovieFailure)
 }
