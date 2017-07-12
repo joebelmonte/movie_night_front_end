@@ -17,12 +17,13 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   store.user = data.user
   console.log('sign in success')
+  $('.website-body').show()
+  $('header').hide()
   $('#sign-in-modal').modal('hide')
   $('.sign-in-error').text('')
   $('#sign-in').trigger('reset')
   // $('#signOut').show()
   // $('#sign-up').hide()
-  // $('#sign-in').hide()
   // $('#change-password').show()
   // $('#LogInSuccess').modal('show')
   // $('.status-message').text('Use the buttons to the left to view your database, or search IMDB via the Open Movie Database.')
@@ -37,6 +38,8 @@ const signInFailure = (error) => {
 const autoSignInSuccess = (data) => {
   store.user = data.user
   console.log('auto sign in success')
+  $('.website-body').show()
+  $('header').hide()
   $('#sign-up-modal').modal('hide')
   $('.sign-up-error').text('')
   $('#sign-up').trigger('reset')
@@ -67,6 +70,9 @@ const changePasswordFailure = (data) => {
 const signOutSuccess = (data) => {
   store.user = null
   console.log('sign out success')
+  $('header').show()
+  $('.website-body').hide()
+  $('.movie-display-area').html('<div class="welcome-instructions"><h3>Welcome to Movie Night, you own personal movie database. By clicking the buttons on the left, you can search your database or add movies to your database.</h3>')
   $('#sign-up').show()
   $('#sign-in').show()
   $('#signOut').hide()

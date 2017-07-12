@@ -24,10 +24,11 @@
       <h2>Please create an account or sign in.</h2>
       <button type="button" class="btn btn-default sign-up hvr-bounce-in" data-toggle="modal" data-target="#sign-up-modal">Sign-Up</button>
       <button type="button" class="btn btn-default sign-in hvr-bounce-in" data-toggle="modal" data-target="#sign-in-modal">Sign-In</button>
-      <button type="button" class="btn btn-default about">About</button>
 
     </div>
   </header>
+  <div class="website-body">
+  <div class="picture-peek"></div>
   <div class="container-fluid">
     <div class="row title-line">
       <div class="col-sm-2"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#change-password-modal">Change password</button></div>
@@ -74,9 +75,13 @@
         </form>
         <input type="submit" name="cancel" value="Clear Fields" class="btn btn-default movie-input-buttons cancel-new-movie">
       </div>
-      <div class="col-sm-9 movie-display-area"></div>
+      <div class="col-sm-9 movie-display-area">
+        <div class="welcome-instructions"><h3>Welcome to Movie Night, you own personal movie database. By clicking the buttons on the left, you can search your database or add movies to your database.</h3>
+        </div>
+        </div>
     </div>
   </div>
+</div>
   <!-- Sign Up Modal -->
   <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
