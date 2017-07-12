@@ -213,7 +213,7 @@ const deleteMovieFailure = (error) => {
 }
 
 const addNewMovieFromOMDbSuccess = (data) => {
-  // $('#add-OMDB-success').modal('show')
+  $('#add-OMDB-success').modal('show')
   // $('.omdb-search-results-details').hide()
   $('#search-OMDB').trigger('reset')
 }
