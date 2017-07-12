@@ -253,7 +253,6 @@ const addHandlers = () => {
   $('#signOut').on('submit', signOut)
   $('#new-movie').on('submit', onAddNewMovie)
   $('#show-all-movies').on('submit', getAllMovies)
-
   $('#search-by-title').on('submit', onSearchByTitle)
   $('#search-OMDB').on('submit', onSearchOMDb)
   $('.OMDB-movie-detail-table').on('click', onAddOMDbMovie)

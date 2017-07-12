@@ -30,7 +30,7 @@
   </header>
   <div class="container-fluid">
     <div class="row title-line">
-      <div class="col-sm-2"><button type="button" class="btn btn-default">Change password</button></div>
+      <div class="col-sm-2"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#change-password-modal">Change password</button></div>
       <div class="col-sm-8">Movie Night</div>
       <div class="col-sm-2"><button type="button" class="btn btn-default">Sign Out</button></div>
     </div>
@@ -154,7 +154,45 @@
       </div>
     </div>
   </div>
-  <!-- End of Sign Up Modal -->
+  <!-- End of Sign In Modal -->
+
+  <!-- Change Password Modal -->
+  <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+                 <span aria-hidden="true">&times;</span>
+                 <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+              Change password
+          </h4>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form id="change-password" class="form-horizontal" role="form">
+            <fieldset>
+              <!-- <legend>Sign In!</legend> -->
+              <label class="col-sm-4 control-label" for="inputEmail3">Current password</label>
+              <div class="col-sm-8">
+                <input type="password" name="passwords[old]" placeholder="Current password" class="form-control"><br></div>
+
+              <label class="col-sm-4 control-label" for="inputEmail3">Password</label>
+              <div class="col-sm-8">
+                <input type="password" name="passwords[new]" placeholder="New Password" class="form-control"><br></div>
+
+              <div class="change-password-error"></div>
+              <input type="submit" name="submit" value="Change Password" class="btn btn-default sign-up-modal-button">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Change Password Modal -->
   <footer>Copyright 2017 by Joe Belmonte</footer>
 </body>
 

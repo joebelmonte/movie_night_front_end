@@ -54,13 +54,14 @@ const autoSignInFailure = (error) => {
 }
 
 const changePasswordSuccess = (data) => {
-  $('#passWordChangeSuccess').modal('show')
   $('#change-password').trigger('reset')
+  $('.change-password-error').text('Your password was changed successfully.')
 }
 
 const changePasswordFailure = (data) => {
   $('#passWordChangeFailure').modal('show')
   $('#change-password').trigger('reset')
+  $('.change-password-error').text('There was an error changing passwords.  Please try again.')
 }
 
 const signOutSuccess = (data) => {
