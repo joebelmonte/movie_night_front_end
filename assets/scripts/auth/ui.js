@@ -69,15 +69,15 @@ const changePasswordFailure = (data) => {
 
 const signOutSuccess = (data) => {
   store.user = null
-  console.log('sign out success')
+  // console.log('sign out success')
   $('header').show()
   $('.website-body').hide()
   $('.movie-display-area').html('<div class="welcome-instructions"><h3>Welcome to Movie Night, you own personal movie database. By clicking the buttons on the left, you can search your database or add movies to your database.</h3>')
-  $('#sign-up').show()
-  $('#sign-in').show()
-  $('#signOut').hide()
-  $('#change-password').hide()
   $('#signOutSuccess').modal('show')
+  // $('#sign-up').show()
+  // $('#sign-in').show()
+  // $('#signOut').hide()
+  // $('#change-password').hide()
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
   $('#change-password').trigger('reset')
@@ -85,14 +85,14 @@ const signOutSuccess = (data) => {
   $('#update-movie').trigger('reset')
   $('#search-by-title').trigger('reset')
   $('#search-OMDB').trigger('reset')
-  $('.your-movies').hide()
-  $('#update-movie').hide()
-  $('#delete-movie').hide()
-  $('.omdb-search-results').hide()
-  $('.omdb-search-results-details').hide()
-  $('.new-movie-entry-instructions').hide()
-  $('.movie-controls').hide()
-  $('.status-message').text('Welcome to MyMDb - your own personal IMDB. Please create an account below or sign in above.')
+  // $('.your-movies').hide()
+  // $('#update-movie').hide()
+  // $('#delete-movie').hide()
+  // $('.omdb-search-results').hide()
+  // $('.omdb-search-results-details').hide()
+  // $('.new-movie-entry-instructions').hide()
+  // $('.movie-controls').hide()
+  // $('.status-message').text('Welcome to MyMDb - your own personal IMDB. Please create an account below or sign in above.')
 }
 
 const signOutFailure = (data) => {
